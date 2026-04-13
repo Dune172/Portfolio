@@ -30,16 +30,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Narrative */}
+      {/* Narrative — restructured to lead with impact */}
       <Section>
         <article className="mx-auto max-w-2xl space-y-7 text-[17px] leading-[1.8] text-ink-light">
           <p>
-            My path to learning architecture wasn&rsquo;t linear &mdash; and
-            that&rsquo;s exactly why it works. I started with a degree in
-            accounting, where I learned to think in systems: how inputs flow
-            through processes, where inefficiencies hide, and how to measure
-            what matters. That analytical foundation shapes everything I do
-            today.
+            I built an automation platform that cut course development time by
+            60% and saves over $200K annually. I integrated AI copilots across
+            three teams, driving 30&ndash;60% efficiency gains. I led an
+            accessibility transformation across 45+ courses to WCAG 2.1 AAA
+            compliance &mdash; with zero post-launch complaints. And I did it
+            all while serving as the cross-functional bridge between content,
+            engineering, and QA.
+          </p>
+
+          <p>
+            That&rsquo;s the highlight reel. Here&rsquo;s the path that made
+            it possible.
+          </p>
+
+          <hr className="rule my-10" />
+
+          <h2 className="text-2xl font-semibold text-ink">
+            The unlikely origin
+          </h2>
+
+          <p>
+            I started with a degree in accounting, where I learned to think in
+            systems: how inputs flow through processes, where inefficiencies
+            hide, and how to measure what matters. That analytical foundation
+            shapes everything I do today.
           </p>
 
           <p>
@@ -56,17 +75,9 @@ export default function AboutPage() {
             At Colibri, I realized the bottleneck in course development
             wasn&rsquo;t talent or effort &mdash; it was the process itself. So
             I started building. TAGFORCE, a proprietary automation platform in
-            JavaScript and Python, cut development time by 60% and saves over
-            $200K annually. When AI tools emerged, I didn&rsquo;t just adopt
-            them &mdash; I designed integration strategies for three teams,
-            driving 30&ndash;60% efficiency gains across Design, QA, and Data.
-          </p>
-
-          <p>
-            I led the accessibility transformation across 45+ course products,
-            achieving WCAG 2.1 AAA compliance &mdash; not by treating it as a
-            checklist, but by embedding it into the architecture of how courses
-            are built.
+            JavaScript and Python. LLM-based copilots tailored to each
+            team&rsquo;s workflows. An accessibility framework that made
+            compliance structural rather than cosmetic.
           </p>
 
           <hr className="rule my-10" />
@@ -116,8 +127,16 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-10 flex gap-4">
             <Button href="/case-studies">See My Work</Button>
+            <a
+              href="/andrew-swan-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] border border-stone-300 text-ink hover:border-ink hover:bg-ink hover:text-stone-50 transition-all"
+            >
+              Download Resume
+            </a>
           </div>
         </div>
       </Section>

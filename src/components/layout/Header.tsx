@@ -23,19 +23,19 @@ export function Header() {
           >
             Andrew Swan
           </span>
-          <span className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400 sm:inline">
+          <span className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400 lg:inline">
             Learning Architect
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-0.5 md:flex" aria-label="Main">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "relative px-3 py-1.5 text-[13px] font-medium tracking-wide uppercase transition-colors",
+                "relative px-2.5 py-1.5 text-[12px] font-medium tracking-wide uppercase transition-colors",
                 pathname === item.href || pathname.startsWith(item.href + "/")
                   ? "text-cobalt"
                   : "text-stone-500 hover:text-ink"
@@ -43,10 +43,18 @@ export function Header() {
             >
               {item.label}
               {(pathname === item.href || pathname.startsWith(item.href + "/")) && (
-                <span className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-cobalt" />
+                <span className="absolute bottom-0 left-2.5 right-2.5 h-[1.5px] bg-cobalt" />
               )}
             </Link>
           ))}
+          <a
+            href="/andrew-swan-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 px-3 py-1.5 text-[12px] font-medium uppercase tracking-wide text-cobalt border border-cobalt/30 hover:bg-cobalt hover:text-white transition-colors"
+          >
+            Resume
+          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -97,6 +105,15 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <a
+            href="/andrew-swan-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block py-3 text-sm font-medium uppercase tracking-wide text-cobalt"
+            onClick={() => setMobileOpen(false)}
+          >
+            Resume (PDF)
+          </a>
         </nav>
       )}
     </header>

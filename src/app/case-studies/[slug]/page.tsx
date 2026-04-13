@@ -7,6 +7,19 @@ import { Button } from "@/components/ui/Button";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getAllCaseStudies, getCaseStudyBySlug } from "@/lib/case-studies";
 import { SITE } from "@/lib/constants";
+import {
+  TagforceDiagram,
+  LlmCopilotsDiagram,
+  WcagDiagram,
+  LmsDiagram,
+} from "@/components/case-studies/Diagrams";
+
+const DIAGRAM_MAP: Record<string, React.ComponentType> = {
+  "tagforce-automation-platform": TagforceDiagram,
+  "llm-copilot-integration": LlmCopilotsDiagram,
+  "wcag-accessibility-at-scale": WcagDiagram,
+  "enterprise-lms-administration": LmsDiagram,
+};
 
 export function generateStaticParams() {
   return getAllCaseStudies().map((cs) => ({ slug: cs.slug }));
@@ -41,6 +54,8 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
+
+  const Diagram = DIAGRAM_MAP[cs.slug];
 
   const sections = [
     { heading: "The Challenge", content: cs.challenge },
@@ -103,6 +118,8 @@ export default async function CaseStudyPage({
               <p className="mt-4 text-[17px] leading-[1.8] text-ink-light">
                 {s.content}
               </p>
+              {/* Diagram after "The Solution" section */}
+              {i === 2 && Diagram && <Diagram />}
             </div>
           ))}
 

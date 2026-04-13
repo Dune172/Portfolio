@@ -2,19 +2,20 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
 import { SKILLS } from "@/lib/constants";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
+import { getRecentPosts } from "@/lib/blog";
 
 export default function HomePage() {
   const featured = getFeaturedCaseStudies();
+  const recentPosts = getRecentPosts(3);
 
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-charcoal grain">
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <div className="grid items-end gap-12 lg:grid-cols-[1fr,auto]">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr,280px]">
             <div>
               <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
                 Learning Architect
@@ -47,26 +48,59 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Hero metrics — architectural, oversized */}
-            <div className="animate-fade-up delay-4 hidden lg:flex lg:flex-col lg:items-end lg:gap-8">
-              {[
-                { value: "60%", label: "Faster development" },
-                { value: "$200K+", label: "Annual savings" },
-                { value: "45+", label: "Courses made accessible" },
-              ].map((metric) => (
-                <div key={metric.label} className="text-right">
-                  <p
-                    className="text-4xl font-semibold text-stone-300"
+            {/* Photo + metrics column */}
+            <div className="animate-fade-up delay-4 hidden lg:block">
+              {/* Headshot placeholder — replace /headshot.jpg with your photo */}
+              <div className="relative mx-auto mb-8 h-48 w-48 overflow-hidden border border-stone-700">
+                <div className="flex h-full w-full items-center justify-center bg-charcoal-light">
+                  <span
+                    className="text-5xl font-semibold text-stone-600"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
-                    {metric.value}
-                  </p>
-                  <p className="mt-0.5 text-[11px] uppercase tracking-[0.15em] text-stone-500">
-                    {metric.label}
-                  </p>
+                    AS
+                  </span>
                 </div>
-              ))}
+              </div>
+              <div className="flex flex-col items-end gap-6">
+                {[
+                  { value: "60%", label: "Faster development" },
+                  { value: "$200K+", label: "Annual savings" },
+                  { value: "45+", label: "Courses made accessible" },
+                ].map((metric) => (
+                  <div key={metric.label} className="text-right">
+                    <p
+                      className="text-3xl font-semibold text-stone-300"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {metric.value}
+                    </p>
+                    <p className="mt-0.5 text-[11px] uppercase tracking-[0.15em] text-stone-500">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Organizations */}
+      <section className="border-b border-border bg-surface py-8">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400">
+              Organizations I&rsquo;ve worked with
+            </p>
+            {["Colibri Group", "Ameritech College", "The VOID", "CallForce", "Merit Games"].map((org) => (
+              <span
+                key={org}
+                className="text-sm font-semibold text-stone-400 tracking-wide"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                {org}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -159,25 +193,84 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Why Learning Architect */}
+      {/* What I'm Looking For */}
       <Section>
         <div className="mx-auto max-w-2xl">
           <hr className="rule mb-12" />
-          <h2 className="text-center text-3xl font-semibold text-ink lg:text-4xl">
-            Why &ldquo;Learning Architect&rdquo;?
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt text-center">
+            Open to Opportunities
+          </p>
+          <h2 className="mt-3 text-center text-3xl font-semibold text-ink lg:text-4xl">
+            What I&rsquo;m Looking For
           </h2>
           <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
-            Learning Architects don&rsquo;t just design courses. They engineer
-            the systems, tools, and workflows that make great learning possible
-            at scale. I sit at the intersection of design thinking and technical
-            execution &mdash; building automation platforms, integrating AI into
-            team workflows, and ensuring accessibility isn&rsquo;t an
-            afterthought but a foundation.
+            I&rsquo;m looking for roles where I can combine learning design
+            with technical systems &mdash; building the infrastructure that
+            makes learning teams more effective, not just designing individual
+            courses. I thrive at the intersection of strategy and execution,
+            where I can architect solutions, integrate AI thoughtfully, and
+            drive measurable outcomes.
           </p>
+          <div className="mt-8 grid gap-px bg-border sm:grid-cols-3">
+            {[
+              { title: "Learning Architecture", desc: "Designing systems and processes, not just content" },
+              { title: "AI & Automation", desc: "Strategic integration that sticks, not shiny demos" },
+              { title: "Cross-Functional Leadership", desc: "Bridging design, engineering, and operations" },
+            ].map((item) => (
+              <div key={item.title} className="bg-background p-5 text-center">
+                <p className="text-sm font-semibold text-ink">{item.title}</p>
+                <p className="mt-1 text-xs text-muted">{item.desc}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-10 text-center">
-            <Button href="/about">Learn My Story</Button>
+            <Button href="/contact">Let&rsquo;s Talk</Button>
           </div>
           <hr className="rule mt-12" />
+        </div>
+      </Section>
+
+      {/* Blog Preview */}
+      <Section className="bg-surface">
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+              Thinking
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-ink">
+              Recent Writing
+            </h2>
+          </div>
+          <Button href="/blog" variant="secondary" className="hidden sm:inline-flex">
+            All Posts
+          </Button>
+        </div>
+
+        <hr className="rule mt-6 mb-8" />
+
+        <div className="space-y-0">
+          {recentPosts.map((post, i) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
+              {i > 0 && <hr className="rule" />}
+              <div className="py-6 flex items-baseline justify-between gap-6">
+                <div>
+                  <h3 className="text-base font-semibold text-ink group-hover:text-cobalt transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted hidden sm:block">
+                    {post.description}
+                  </p>
+                </div>
+                <Badge className="shrink-0">{post.category}</Badge>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-6 text-center sm:hidden">
+          <Button href="/blog" variant="secondary">
+            All Posts
+          </Button>
         </div>
       </Section>
     </>
