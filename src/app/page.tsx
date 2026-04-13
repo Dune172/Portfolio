@@ -1,65 +1,185 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { SKILLS } from "@/lib/constants";
+import { getFeaturedCaseStudies } from "@/lib/case-studies";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = getFeaturedCaseStudies();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-charcoal grain">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+          <div className="grid items-end gap-12 lg:grid-cols-[1fr,auto]">
+            <div>
+              <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
+                Learning Architect
+              </p>
+              <h1 className="animate-fade-up delay-1 mt-5 text-4xl font-semibold leading-[1.1] text-stone-50 sm:text-5xl lg:text-[3.5rem]">
+                I architect learning
+                <br />
+                systems{" "}
+                <span className="italic text-stone-400">that scale.</span>
+              </h1>
+              <p className="animate-fade-up delay-2 mt-6 max-w-lg text-base leading-relaxed text-stone-400">
+                At the intersection of instructional design, AI integration,
+                and learning operations. I build the tools, processes, and
+                experiences that make learning teams 60% more efficient.
+              </p>
+              <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
+                <Button
+                  href="/case-studies"
+                  className="bg-stone-50 text-charcoal hover:bg-cobalt hover:text-white"
+                >
+                  See My Work
+                </Button>
+                <Button
+                  href="/contact"
+                  variant="secondary"
+                  className="border-stone-600 text-stone-300 hover:border-stone-300 hover:bg-transparent hover:text-stone-100"
+                >
+                  Get In Touch
+                </Button>
+              </div>
+            </div>
+
+            {/* Hero metrics — architectural, oversized */}
+            <div className="animate-fade-up delay-4 hidden lg:flex lg:flex-col lg:items-end lg:gap-8">
+              {[
+                { value: "60%", label: "Faster development" },
+                { value: "$200K+", label: "Annual savings" },
+                { value: "45+", label: "Courses made accessible" },
+              ].map((metric) => (
+                <div key={metric.label} className="text-right">
+                  <p
+                    className="text-4xl font-semibold text-stone-300"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {metric.value}
+                  </p>
+                  <p className="mt-0.5 text-[11px] uppercase tracking-[0.15em] text-stone-500">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Case Studies */}
+      <Section>
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+              Selected Work
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+              Results That Speak
+            </h2>
+          </div>
+          <Button href="/case-studies" variant="secondary" className="hidden sm:inline-flex">
+            View All
+          </Button>
+        </div>
+
+        <hr className="rule mt-6 mb-10" />
+
+        <div className="grid gap-px bg-border md:grid-cols-3">
+          {featured.map((cs) => (
+            <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="group">
+              <div className="flex h-full flex-col bg-background p-7 transition-colors hover:bg-stone-100">
+                <Badge>{cs.category}</Badge>
+                <h3 className="mt-4 text-lg font-semibold text-ink group-hover:text-cobalt transition-colors leading-snug">
+                  {cs.title}
+                </h3>
+                <div className="mt-auto pt-6">
+                  <p
+                    className="text-4xl font-semibold text-terra"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {cs.heroMetric.value}
+                  </p>
+                  <p className="mt-1 text-xs text-muted uppercase tracking-wide">
+                    {cs.heroMetric.label}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-6 text-center sm:hidden">
+          <Button href="/case-studies" variant="secondary">
+            View All Case Studies
+          </Button>
+        </div>
+      </Section>
+
+      {/* Skills Pillars */}
+      <Section className="bg-surface">
+        <div className="text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+            Expertise
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+            Three Pillars of Learning Architecture
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted">
+            Where learning science meets technical execution.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mt-14 grid gap-px bg-border md:grid-cols-3">
+          {Object.values(SKILLS).map((pillar) => (
+            <div key={pillar.title} className="bg-surface p-7">
+              <h3 className="text-xl font-semibold text-ink">
+                {pillar.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {pillar.description}
+              </p>
+              <ul className="mt-5 space-y-2.5">
+                {pillar.items.map((skill) => (
+                  <li
+                    key={skill}
+                    className="flex items-center gap-2.5 text-sm text-ink-light"
+                  >
+                    <span className="h-px w-3 bg-terra" aria-hidden="true" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+
+      {/* Why Learning Architect */}
+      <Section>
+        <div className="mx-auto max-w-2xl">
+          <hr className="rule mb-12" />
+          <h2 className="text-center text-3xl font-semibold text-ink lg:text-4xl">
+            Why &ldquo;Learning Architect&rdquo;?
+          </h2>
+          <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
+            Learning Architects don&rsquo;t just design courses. They engineer
+            the systems, tools, and workflows that make great learning possible
+            at scale. I sit at the intersection of design thinking and technical
+            execution &mdash; building automation platforms, integrating AI into
+            team workflows, and ensuring accessibility isn&rsquo;t an
+            afterthought but a foundation.
+          </p>
+          <div className="mt-10 text-center">
+            <Button href="/about">Learn My Story</Button>
+          </div>
+          <hr className="rule mt-12" />
+        </div>
+      </Section>
+    </>
   );
 }
