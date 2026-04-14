@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/Badge";
 import { SKILLS } from "@/lib/constants";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { getRecentPosts } from "@/lib/blog";
+import { Headshot } from "@/components/home/Headshot";
 
 export default function HomePage() {
   const featured = getFeaturedCaseStudies();
@@ -50,17 +51,7 @@ export default function HomePage() {
 
             {/* Photo + metrics column */}
             <div className="animate-fade-up delay-4 hidden lg:block">
-              {/* Headshot placeholder — replace /headshot.jpg with your photo */}
-              <div className="relative mx-auto mb-8 h-48 w-48 overflow-hidden border border-stone-700">
-                <div className="flex h-full w-full items-center justify-center bg-charcoal-light">
-                  <span
-                    className="text-5xl font-semibold text-stone-600"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    AS
-                  </span>
-                </div>
-              </div>
+              <Headshot />
               <div className="flex flex-col items-end gap-6">
                 {[
                   { value: "60%", label: "Faster development" },

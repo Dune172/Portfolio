@@ -65,7 +65,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-2xl font-semibold text-ink">Send a Message</h2>
             <form
-              action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID || "xplaceholder"}`}
+              action="https://formspree.io/andrewmswan@gmail.com"
               method="POST"
               className="mt-8 space-y-6"
             >
