@@ -63,6 +63,34 @@ export default function RootLayout({
       className={`${outfit.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        {/*
+          Hidden SVG filter used to tint raster org logos to the stone-500 font tone.
+          Forces RGB to #8a8578 while passing the source alpha through untouched, so
+          PNGs with transparent backgrounds stay transparent and only their visible
+          ink gets recolored.
+        */}
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          width="0"
+          height="0"
+          style={{ position: "absolute" }}
+        >
+          <defs>
+            <filter
+              id="logo-tint"
+              colorInterpolationFilters="sRGB"
+            >
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.5412
+                        0 0 0 0 0.5216
+                        0 0 0 0 0.4706
+                        0 0 0 1 0"
+              />
+            </filter>
+          </defs>
+        </svg>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-cobalt focus:px-4 focus:py-2 focus:text-white"

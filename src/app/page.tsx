@@ -7,6 +7,13 @@ import { SKILLS } from "@/lib/constants";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { getRecentPosts } from "@/lib/blog";
 import { Headshot } from "@/components/home/Headshot";
+import { CompanyLogo } from "@/components/home/CompanyLogo";
+import {
+  ColibriLogo,
+  JoyceLogo,
+  VoidLogo,
+  MeritGamesLogo,
+} from "@/components/home/logos";
 
 export default function HomePage() {
   const featured = getFeaturedCaseStudies();
@@ -92,25 +99,27 @@ export default function HomePage() {
       </section>
 
       {/* Organizations */}
-      <section className="border-b border-border bg-surface py-10">
+      <section className="border-b border-border bg-surface pt-10 pb-[30px]">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal animation="fade-in">
             <p className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
               Organizations I&rsquo;ve worked with
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {["Colibri Group", "Ameritech College", "The VOID", "CallForce", "Merit Games"].map(
-                (org, i) => (
-                  <Reveal key={org} animation="fade-up" delay={0.08 * i}>
-                    <span
-                      className="text-base font-semibold text-stone-500 tracking-wide sm:text-lg"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {org}
-                    </span>
-                  </Reveal>
-                )
-              )}
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:gap-x-14">
+              {[
+                { name: "Colibri Group", Logo: ColibriLogo },
+                // Joyce wordmark is stacked (icon + "Joyce" + "UNIVERSITY"), so
+                // it needs a bit more vertical room than the others to read.
+                { name: "Joyce University", Logo: JoyceLogo, heightClass: "h-[67px]" },
+                { name: "The VOID", Logo: VoidLogo },
+                { name: "Merit Games", Logo: MeritGamesLogo },
+              ].map(({ name, Logo, heightClass }, i) => (
+                <Reveal key={name} animation="fade-up" delay={0.08 * i}>
+                  <CompanyLogo name={name} heightClass={heightClass}>
+                    <Logo />
+                  </CompanyLogo>
+                </Reveal>
+              ))}
             </div>
           </Reveal>
         </div>
