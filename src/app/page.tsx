@@ -102,7 +102,7 @@ export default function HomePage() {
       <section className="border-b border-border bg-surface pt-10 pb-[30px]">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal animation="fade-in">
-            <p className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
+            <p className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-500">
               Organizations I&rsquo;ve worked with
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:gap-x-14">
@@ -151,8 +151,8 @@ export default function HomePage() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {featured.map((cs, i) => (
-            <Reveal key={cs.slug} delay={0.1 * i}>
-              <Link href={`/case-studies/${cs.slug}`} className="group block">
+            <Reveal key={cs.slug} delay={0.1 * i} className="h-full">
+              <Link href={`/case-studies/${cs.slug}`} className="group block h-full">
                 <div className="card-accent-bar relative flex h-full flex-col border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <Badge>{cs.category}</Badge>
                   <h3 className="mt-4 text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-cobalt">
