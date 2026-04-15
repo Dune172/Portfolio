@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { Reveal } from "@/components/ui/Reveal";
 import { SKILLS } from "@/lib/constants";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { getRecentPosts } from "@/lib/blog";
@@ -15,19 +16,23 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-charcoal grain">
-        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1fr,280px]">
-            <div>
+        <div className="mx-auto max-w-6xl px-6 pt-12 pb-20 sm:pt-14 sm:pb-20 lg:pt-[75px] lg:pb-[107px]">
+          {/* Top: content + portrait, bottom-aligned on a 3-col grid that matches the metrics strip */}
+          <div className="grid grid-cols-1 items-end gap-y-12 lg:grid-cols-3 lg:gap-x-10">
+            {/* Content — spans cols 1-2 (same footprint as the first two metrics) */}
+            <div className="lg:col-span-2">
               <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
                 Learning Architect
               </p>
-              <h1 className="animate-fade-up delay-1 mt-5 text-4xl font-semibold leading-[1.1] text-stone-50 sm:text-5xl lg:text-[3.5rem]">
+              <h1 className="animate-fade-up delay-1 mt-5 text-4xl font-semibold leading-[1.05] text-stone-50 sm:text-5xl lg:text-[3.75rem]">
                 I architect learning
                 <br />
                 systems{" "}
-                <span className="italic text-stone-400">that scale.</span>
+                <span className="italic text-stone-400 text-shimmer">
+                  that scale.
+                </span>
               </h1>
-              <p className="animate-fade-up delay-2 mt-6 max-w-lg text-base leading-relaxed text-stone-400">
+              <p className="animate-fade-up delay-2 mt-6 max-w-xl text-base leading-relaxed text-stone-400">
                 At the intersection of instructional design, AI integration,
                 and learning operations. I build the tools, processes, and
                 experiences that make learning teams 60% more efficient.
@@ -35,7 +40,7 @@ export default function HomePage() {
               <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
                 <Button
                   href="/case-studies"
-                  className="bg-stone-50 text-charcoal hover:bg-cobalt hover:text-white"
+                  className="bg-stone-50 text-charcoal hover:bg-cobalt hover:text-white hover:scale-[1.02] transition-all duration-200"
                 >
                   See My Work
                 </Button>
@@ -49,92 +54,115 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Photo + metrics column */}
-            <div className="animate-fade-up delay-4 hidden lg:block">
-              <Headshot />
-              <div className="flex flex-col items-end gap-6">
-                {[
-                  { value: "60%", label: "Faster development" },
-                  { value: "$200K+", label: "Annual savings" },
-                  { value: "45+", label: "Courses made accessible" },
-                ].map((metric) => (
-                  <div key={metric.label} className="text-right">
+            {/* Portrait — occupies col 3, centered to align with the Courses Made Accessible block below */}
+            <div className="animate-fade-up delay-2">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px]">
+                <Headshot />
+              </div>
+            </div>
+          </div>
+
+          {/* Metrics strip — horizontal, full-width, separated by hairline */}
+          <div className="animate-fade-up delay-4 mt-16 lg:mt-20">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-stone-700 to-transparent" />
+            <dl className="mt-8 grid grid-cols-3 gap-6 sm:gap-10">
+              {[
+                { value: "60%", label: "Faster development" },
+                { value: "$200K+", label: "Annual savings" },
+                { value: "45+", label: "Courses made accessible" },
+              ].map((metric) => (
+                <div key={metric.label}>
+                  <dt className="sr-only">{metric.label}</dt>
+                  <dd>
                     <p
-                      className="text-3xl font-semibold text-stone-300"
+                      className="text-3xl font-semibold text-stone-100 sm:text-4xl lg:text-[2.5rem] lg:leading-none"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       {metric.value}
                     </p>
-                    <p className="mt-0.5 text-[11px] uppercase tracking-[0.15em] text-stone-500">
+                    <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-stone-500 sm:text-[11px]">
                       {metric.label}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
       {/* Organizations */}
-      <section className="border-b border-border bg-surface py-8">
+      <section className="border-b border-border bg-surface py-10">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400">
+          <Reveal animation="fade-in">
+            <p className="mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
               Organizations I&rsquo;ve worked with
             </p>
-            {["Colibri Group", "Ameritech College", "The VOID", "CallForce", "Merit Games"].map((org) => (
-              <span
-                key={org}
-                className="text-sm font-semibold text-stone-400 tracking-wide"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {org}
-              </span>
-            ))}
-          </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              {["Colibri Group", "Ameritech College", "The VOID", "CallForce", "Merit Games"].map(
+                (org, i) => (
+                  <Reveal key={org} animation="fade-up" delay={0.08 * i}>
+                    <span
+                      className="text-base font-semibold text-stone-500 tracking-wide sm:text-lg"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {org}
+                    </span>
+                  </Reveal>
+                )
+              )}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Featured Case Studies */}
       <Section>
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
-              Selected Work
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-              Results That Speak
-            </h2>
+        <Reveal>
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+                Selected Work
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+                Results That Speak
+              </h2>
+            </div>
+            <Button
+              href="/case-studies"
+              variant="secondary"
+              className="hidden sm:inline-flex"
+            >
+              View All
+            </Button>
           </div>
-          <Button href="/case-studies" variant="secondary" className="hidden sm:inline-flex">
-            View All
-          </Button>
-        </div>
 
-        <hr className="rule mt-6 mb-10" />
+          <hr className="rule mt-6 mb-10" />
+        </Reveal>
 
-        <div className="grid gap-px bg-border md:grid-cols-3">
-          {featured.map((cs) => (
-            <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="group">
-              <div className="flex h-full flex-col bg-background p-7 transition-colors hover:bg-stone-100">
-                <Badge>{cs.category}</Badge>
-                <h3 className="mt-4 text-lg font-semibold text-ink group-hover:text-cobalt transition-colors leading-snug">
-                  {cs.title}
-                </h3>
-                <div className="mt-auto pt-6">
-                  <p
-                    className="text-4xl font-semibold text-terra"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {cs.heroMetric.value}
-                  </p>
-                  <p className="mt-1 text-xs text-muted uppercase tracking-wide">
-                    {cs.heroMetric.label}
-                  </p>
+        <div className="grid gap-6 md:grid-cols-3">
+          {featured.map((cs, i) => (
+            <Reveal key={cs.slug} delay={0.1 * i}>
+              <Link href={`/case-studies/${cs.slug}`} className="group block">
+                <div className="card-accent-bar relative flex h-full flex-col border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <Badge>{cs.category}</Badge>
+                  <h3 className="mt-4 text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-cobalt">
+                    {cs.title}
+                  </h3>
+                  <div className="mt-auto pt-6">
+                    <p
+                      className="text-4xl font-semibold text-terra"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {cs.heroMetric.value}
+                    </p>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-muted">
+                      {cs.heroMetric.label}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
 
@@ -147,114 +175,153 @@ export default function HomePage() {
 
       {/* Skills Pillars */}
       <Section className="bg-surface">
-        <div className="text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
-            Expertise
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-            Three Pillars of Learning Architecture
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted">
-            Where learning science meets technical execution.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+              Expertise
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+              Three Pillars of Learning Architecture
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-base text-muted">
+              Where learning science meets technical execution.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid gap-px bg-border md:grid-cols-3">
-          {Object.values(SKILLS).map((pillar) => (
-            <div key={pillar.title} className="bg-surface p-7">
-              <h3 className="text-xl font-semibold text-ink">
-                {pillar.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {pillar.description}
-              </p>
-              <ul className="mt-5 space-y-2.5">
-                {pillar.items.map((skill) => (
-                  <li
-                    key={skill}
-                    className="flex items-center gap-2.5 text-sm text-ink-light"
-                  >
-                    <span className="h-px w-3 bg-terra" aria-hidden="true" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {Object.values(SKILLS).map((pillar, i) => (
+            <Reveal key={pillar.title} delay={0.1 * i}>
+              <div className="h-full rounded-lg border border-border bg-background p-7 shadow-sm">
+                <h3 className="text-xl font-semibold text-ink">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {pillar.description}
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {pillar.items.map((skill) => (
+                    <li
+                      key={skill}
+                      className="flex items-center gap-2.5 text-sm text-ink-light"
+                    >
+                      <span
+                        className="h-px w-3 bg-terra"
+                        aria-hidden="true"
+                      />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Section>
 
       {/* What I'm Looking For */}
       <Section>
-        <div className="mx-auto max-w-2xl">
-          <hr className="rule mb-12" />
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt text-center">
-            Open to Opportunities
-          </p>
-          <h2 className="mt-3 text-center text-3xl font-semibold text-ink lg:text-4xl">
-            What I&rsquo;m Looking For
-          </h2>
-          <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
-            I&rsquo;m looking for roles where I can combine learning design
-            with technical systems &mdash; building the infrastructure that
-            makes learning teams more effective, not just designing individual
-            courses. I thrive at the intersection of strategy and execution,
-            where I can architect solutions, integrate AI thoughtfully, and
-            drive measurable outcomes.
-          </p>
-          <div className="mt-8 grid gap-px bg-border sm:grid-cols-3">
-            {[
-              { title: "Learning Architecture", desc: "Designing systems and processes, not just content" },
-              { title: "AI & Automation", desc: "Strategic integration that sticks, not shiny demos" },
-              { title: "Cross-Functional Leadership", desc: "Bridging design, engineering, and operations" },
-            ].map((item) => (
-              <div key={item.title} className="bg-background p-5 text-center">
-                <p className="text-sm font-semibold text-ink">{item.title}</p>
-                <p className="mt-1 text-xs text-muted">{item.desc}</p>
-              </div>
-            ))}
+        <Reveal>
+          <div className="mx-auto max-w-2xl">
+            <hr className="rule mb-12" />
+            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+              Open to Opportunities
+            </p>
+            <h2 className="mt-3 text-center text-3xl font-semibold text-ink lg:text-4xl">
+              What I&rsquo;m Looking For
+            </h2>
+            <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
+              I&rsquo;m looking for roles where I can combine learning design
+              with technical systems &mdash; building the infrastructure that
+              makes learning teams more effective, not just designing individual
+              courses. I thrive at the intersection of strategy and execution,
+              where I can architect solutions, integrate AI thoughtfully, and
+              drive measurable outcomes.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              {[
+                {
+                  title: "Learning Architecture",
+                  desc: "Designing systems and processes, not just content",
+                },
+                {
+                  title: "AI & Automation",
+                  desc: "Strategic integration that sticks, not shiny demos",
+                },
+                {
+                  title: "Cross-Functional Leadership",
+                  desc: "Bridging design, engineering, and operations",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="flex-1 border-l-2 border-cobalt bg-cobalt-light px-5 py-4"
+                >
+                  <p className="text-sm font-semibold text-ink">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-xs text-muted">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <Button href="/contact">Let&rsquo;s Talk</Button>
+            </div>
+            <hr className="rule mt-12" />
           </div>
-          <div className="mt-10 text-center">
-            <Button href="/contact">Let&rsquo;s Talk</Button>
-          </div>
-          <hr className="rule mt-12" />
-        </div>
+        </Reveal>
       </Section>
 
       {/* Blog Preview */}
       <Section className="bg-surface">
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
-              Thinking
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-ink">
-              Recent Writing
-            </h2>
+        <Reveal>
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+                Thinking
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-ink">
+                Recent Writing
+              </h2>
+            </div>
+            <Button
+              href="/blog"
+              variant="secondary"
+              className="hidden sm:inline-flex"
+            >
+              All Posts
+            </Button>
           </div>
-          <Button href="/blog" variant="secondary" className="hidden sm:inline-flex">
-            All Posts
-          </Button>
-        </div>
 
-        <hr className="rule mt-6 mb-8" />
+          <hr className="rule mt-6 mb-8" />
+        </Reveal>
 
         <div className="space-y-0">
           {recentPosts.map((post, i) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
-              {i > 0 && <hr className="rule" />}
-              <div className="py-6 flex items-baseline justify-between gap-6">
-                <div>
-                  <h3 className="text-base font-semibold text-ink group-hover:text-cobalt transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted hidden sm:block">
-                    {post.description}
-                  </p>
+            <Reveal key={post.slug} delay={0.08 * i}>
+              <Link href={`/blog/${post.slug}`} className="group block">
+                {i > 0 && <hr className="rule" />}
+                <div className="flex items-center justify-between gap-6 py-6">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base font-semibold text-ink transition-colors group-hover:text-cobalt">
+                      {post.title}
+                    </h3>
+                    <p className="mt-1 hidden text-sm text-muted sm:block">
+                      {post.description}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 items-center gap-3">
+                    <Badge>{post.category}</Badge>
+                    <span
+                      className="blog-arrow text-cobalt"
+                      aria-hidden="true"
+                    >
+                      &rarr;
+                    </span>
+                  </div>
                 </div>
-                <Badge className="shrink-0">{post.category}</Badge>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
 

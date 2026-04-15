@@ -66,7 +66,12 @@ h1, h2, h3, h4 {
   background: linear-gradient(to right, transparent, var(--color-border), transparent);
 }
 
-/* Reveal animations */
+/* ── Reveal system ─────────────────────────────────── */
+.reveal-hidden {
+  opacity: 0;
+}
+
+/* ── Reveal animations ─────────────────────────────── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -112,7 +117,110 @@ h1, h2, h3, h4 {
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
 
-/* Focus styles */
+/* ── Page transition ───────────────────────────────── */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Mobile menu animation ─────────────────────────── */
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-down {
+  animation: menuSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Card accent bar ───────────────────────────────── */
+.card-accent-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-cobalt);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .card-accent-bar::before {
+  transform: scaleX(1);
+}
+
+/* ── Blog row arrow ────────────────────────────────── */
+.blog-arrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .blog-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Hero portrait — desktop-only horizontal nudge ─── */
+/* The transparent PNG has the subject offset slightly right of center, and we
+   want it visually centered over the "Courses Made Accessible" metric column.
+   On mobile the portrait stands alone in a single column so no shift is applied. */
+@media (min-width: 1024px) {
+  .headshot-desktop-shift {
+    transform: translateX(-25%);
+  }
+}
+
+/* ── Shimmer text effect for hero ──────────────────── */
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.text-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* ── Contact form focus line ───────────────────────── */
+.input-focus-line {
+  position: relative;
+}
+
+.input-focus-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-cobalt);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-focus-line:focus-within::after {
+  left: 0;
+  width: 100%;
+}
+
+/* ── Focus styles ──────────────────────────────────── */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-cobalt);
@@ -132,6 +240,10 @@ button:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal-hidden {
+    opacity: 1;
   }
 }
 
