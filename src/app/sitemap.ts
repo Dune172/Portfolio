@@ -5,7 +5,7 @@ import { SITE } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const caseStudies = getAllCaseStudies().map((cs) => ({
-    url: `${SITE.url}/case-studies/${cs.slug}`,
+    url: `${SITE.url}/experience/${cs.slug}`,
     lastModified: new Date(cs.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.8,
@@ -30,12 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${SITE.url}/case-studies`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
     ...caseStudies,
     {

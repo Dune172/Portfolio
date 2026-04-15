@@ -46,7 +46,7 @@ export default function HomePage() {
               </p>
               <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
                 <Button
-                  href="/case-studies"
+                  href="/experience"
                   className="bg-stone-50 text-charcoal hover:bg-cobalt hover:text-white hover:scale-[1.02] transition-all duration-200"
                 >
                   See My Work
@@ -138,7 +138,7 @@ export default function HomePage() {
               </h2>
             </div>
             <Button
-              href="/case-studies"
+              href="/experience"
               variant="secondary"
               className="hidden sm:inline-flex"
             >
@@ -152,7 +152,7 @@ export default function HomePage() {
         <div className="grid gap-6 md:grid-cols-3">
           {featured.map((cs, i) => (
             <Reveal key={cs.slug} delay={0.1 * i} className="h-full">
-              <Link href={`/case-studies/${cs.slug}`} className="group block h-full">
+              <Link href={`/experience/${cs.slug}`} className="group block h-full">
                 <div className="card-accent-bar relative flex h-full flex-col border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <Badge>{cs.category}</Badge>
                   <h3 className="mt-4 text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-cobalt">
@@ -176,7 +176,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-6 text-center sm:hidden">
-          <Button href="/case-studies" variant="secondary">
+          <Button href="/experience" variant="secondary">
             View All Case Studies
           </Button>
         </div>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SITE } from "@/lib/constants";
@@ -78,18 +79,22 @@ export default async function BlogPostPage({
       <Section>
         <article className="mx-auto max-w-2xl space-y-7 text-[17px] leading-[1.8] text-ink-light">
           {post.content.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
+            <Reveal key={i}>
+              <p>{paragraph}</p>
+            </Reveal>
           ))}
         </article>
 
-        <div className="mx-auto max-w-2xl mt-14">
+        <div className="mx-auto mt-14 max-w-2xl">
           <hr className="rule mb-10" />
-          <div className="flex gap-4">
-            <Button href="/blog" variant="secondary">
-              All Posts
-            </Button>
-            <Button href="/contact">Get In Touch</Button>
-          </div>
+          <Reveal>
+            <div className="flex gap-4">
+              <Button href="/blog" variant="secondary">
+                All Posts
+              </Button>
+              <Button href="/contact">Get In Touch</Button>
+            </div>
+          </Reveal>
         </div>
       </Section>
     </>

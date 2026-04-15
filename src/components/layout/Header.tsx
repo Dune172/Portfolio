@@ -13,10 +13,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="group flex items-baseline gap-2"
-        >
+        <Link href="/" className="group flex items-baseline gap-2">
           <span
             className="text-base font-semibold tracking-tight text-ink"
             style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
@@ -30,28 +27,36 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Main">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "relative px-2.5 py-1.5 text-[12px] font-medium tracking-wide uppercase transition-colors",
-                pathname === item.href || pathname.startsWith(item.href + "/")
-                  ? "text-cobalt"
-                  : "text-stone-500 hover:text-ink"
-              )}
-            >
-              {item.label}
-              {(pathname === item.href || pathname.startsWith(item.href + "/")) && (
-                <span className="absolute bottom-0 left-2.5 right-2.5 h-[1.5px] bg-cobalt" />
-              )}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive =
+              pathname === item.href ||
+              pathname.startsWith(item.href + "/");
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "relative px-2.5 py-1.5 text-[12px] font-medium uppercase tracking-wide transition-colors",
+                  isActive
+                    ? "text-cobalt"
+                    : "text-stone-500 hover:text-ink"
+                )}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-2.5 right-2.5 h-[1.5px] bg-cobalt transition-transform duration-300 origin-left",
+                    isActive ? "scale-x-100" : "scale-x-0"
+                  )}
+                />
+              </Link>
+            );
+          })}
           <a
             href="/andrew-swan-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 px-3 py-1.5 text-[12px] font-medium uppercase tracking-wide text-cobalt border border-cobalt/30 hover:bg-cobalt hover:text-white transition-colors"
+            className="ml-2 border border-cobalt/30 px-3 py-1.5 text-[12px] font-medium uppercase tracking-wide text-cobalt transition-colors hover:bg-cobalt hover:text-white"
           >
             Resume
           </a>
@@ -73,9 +78,17 @@ export function Header() {
             aria-hidden="true"
           >
             {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 7.5h16.5M3.75 12h16.5m-16.5 4.5h16.5" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 7.5h16.5M3.75 12h16.5m-16.5 4.5h16.5"
+              />
             )}
           </svg>
         </button>
@@ -87,7 +100,7 @@ export function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <nav
-          className="border-b border-border bg-background px-6 pb-6 pt-2 md:hidden"
+          className="animate-menu-down border-b border-border bg-background px-6 pb-6 pt-2 md:hidden"
           aria-label="Mobile"
         >
           {NAV_ITEMS.map((item) => (
@@ -96,9 +109,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 "block py-3 text-sm font-medium uppercase tracking-wide transition-colors",
-                pathname === item.href
-                  ? "text-cobalt"
-                  : "text-stone-500"
+                pathname === item.href ? "text-cobalt" : "text-stone-500"
               )}
               onClick={() => setMobileOpen(false)}
             >

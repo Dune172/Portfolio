@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { Reveal } from "@/components/ui/Reveal";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -33,25 +34,30 @@ export default function BlogPage() {
       <Section>
         <div className="mx-auto max-w-2xl space-y-0">
           {posts.map((post, i) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
-              {i > 0 && <hr className="rule" />}
-              <div className="py-10">
-                <Badge>{post.category}</Badge>
-                <h2 className="mt-3 text-xl font-semibold text-ink group-hover:text-cobalt transition-colors sm:text-2xl">
-                  {post.title}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {post.description}
-                </p>
-                <time className="mt-3 block text-xs text-stone-400">
-                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-            </Link>
+            <Reveal key={post.slug} delay={0.08 * i}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="group block"
+              >
+                {i > 0 && <hr className="rule" />}
+                <div className="py-10">
+                  <Badge>{post.category}</Badge>
+                  <h2 className="mt-3 text-xl font-semibold text-ink transition-colors group-hover:text-cobalt sm:text-2xl">
+                    {post.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {post.description}
+                  </p>
+                  <time className="mt-3 block text-xs text-stone-400">
+                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </Section>

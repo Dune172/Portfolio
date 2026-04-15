@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { MetricCard } from "@/components/ui/MetricCard";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getAllCaseStudies, getCaseStudyBySlug } from "@/lib/case-studies";
 import { SITE } from "@/lib/constants";
@@ -68,21 +69,23 @@ export default async function CaseStudyPage({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Case Studies", href: "/case-studies" },
-          { name: cs.title, href: `/case-studies/${cs.slug}` },
+          { name: "Experience", href: "/experience" },
+          { name: cs.title, href: `/experience/${cs.slug}` },
         ]}
       />
       <ArticleJsonLd
         title={cs.title}
         description={cs.description}
-        url={`${SITE.url}/case-studies/${cs.slug}`}
+        url={`${SITE.url}/experience/${cs.slug}`}
         publishedAt={cs.publishedAt}
       />
 
       {/* Header */}
       <section className="bg-charcoal grain overflow-hidden">
         <div className="mx-auto max-w-5xl px-6 py-20">
-          <Badge className="border-cobalt/30 bg-cobalt/10 text-stone-300">{cs.category}</Badge>
+          <Badge className="border-cobalt/30 bg-cobalt/10 text-stone-300">
+            {cs.category}
+          </Badge>
           <h1 className="mt-4 text-3xl font-semibold leading-tight text-stone-50 sm:text-4xl">
             {cs.title}
           </h1>
@@ -107,57 +110,67 @@ export default async function CaseStudyPage({
       <Section>
         <article className="mx-auto max-w-2xl">
           {sections.map((s, i) => (
-            <div key={s.heading} className="mb-14">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cobalt">
-                  0{i + 1}
-                </span>
-                <div className="h-px flex-1 bg-border" />
+            <Reveal key={s.heading}>
+              <div className="mb-14">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cobalt">
+                    0{i + 1}
+                  </span>
+                  <div className="h-px flex-1 bg-border" />
+                </div>
+                <h2 className="text-2xl font-semibold text-ink">
+                  {s.heading}
+                </h2>
+                <p className="mt-4 text-[17px] leading-[1.8] text-ink-light">
+                  {s.content}
+                </p>
+                {/* Diagram after "The Solution" section */}
+                {i === 2 && Diagram && <Diagram />}
               </div>
-              <h2 className="text-2xl font-semibold text-ink">{s.heading}</h2>
-              <p className="mt-4 text-[17px] leading-[1.8] text-ink-light">
-                {s.content}
-              </p>
-              {/* Diagram after "The Solution" section */}
-              {i === 2 && Diagram && <Diagram />}
-            </div>
+            </Reveal>
           ))}
 
           {/* Results */}
-          <div className="mb-14">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cobalt">
-                04
-              </span>
-              <div className="h-px flex-1 bg-border" />
+          <Reveal>
+            <div className="mb-14">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cobalt">
+                  04
+                </span>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+              <h2 className="text-2xl font-semibold text-ink">The Results</h2>
+              <div className="mt-6 grid gap-6 sm:grid-cols-3">
+                {cs.results.metrics.map((m) => (
+                  <MetricCard key={m.label} value={m.value} label={m.label} />
+                ))}
+              </div>
+              <p className="mt-8 text-[17px] leading-[1.8] text-ink-light">
+                {cs.results.narrative}
+              </p>
             </div>
-            <h2 className="text-2xl font-semibold text-ink">The Results</h2>
-            <div className="mt-6 grid gap-6 sm:grid-cols-3">
-              {cs.results.metrics.map((m) => (
-                <MetricCard key={m.label} value={m.value} label={m.label} />
-              ))}
-            </div>
-            <p className="mt-8 text-[17px] leading-[1.8] text-ink-light">
-              {cs.results.narrative}
-            </p>
-          </div>
+          </Reveal>
 
           {/* Reflection */}
-          <div className="mb-14 border-l-2 border-cobalt bg-cobalt-light p-6 sm:p-8">
-            <h2 className="text-xl font-semibold text-ink">Reflection</h2>
-            <p className="mt-4 text-[17px] leading-[1.8] text-ink-light italic">
-              {cs.reflection}
-            </p>
-          </div>
+          <Reveal>
+            <div className="mb-14 border-l-2 border-cobalt bg-cobalt-light p-6 sm:p-8">
+              <h2 className="text-xl font-semibold text-ink">Reflection</h2>
+              <p className="mt-4 text-[17px] italic leading-[1.8] text-ink-light">
+                {cs.reflection}
+              </p>
+            </div>
+          </Reveal>
 
           <hr className="rule mb-10" />
 
-          <div className="flex gap-4">
-            <Button href="/case-studies" variant="secondary">
-              All Case Studies
-            </Button>
-            <Button href="/contact">Get In Touch</Button>
-          </div>
+          <Reveal>
+            <div className="flex gap-4">
+              <Button href="/experience" variant="secondary">
+                All Case Studies
+              </Button>
+              <Button href="/contact">Get In Touch</Button>
+            </div>
+          </Reveal>
         </article>
       </Section>
     </>

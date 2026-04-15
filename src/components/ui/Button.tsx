@@ -16,11 +16,10 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt";
+    "inline-flex items-center justify-center px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt";
 
   const variants = {
-    primary:
-      "bg-ink text-stone-50 hover:bg-cobalt",
+    primary: "bg-ink text-stone-50 hover:bg-cobalt",
     secondary:
       "border border-stone-300 text-ink hover:border-ink hover:bg-ink hover:text-stone-50",
   };
