@@ -2,7 +2,7 @@ export const SITE = {
   name: "Andrew Swan",
   title: "Andrew Swan — Learning Architect",
   description:
-    "Learning Architect bridging instructional design, AI integration, and learning operations. Builder of automation tools that save $200K+ annually and make learning teams 60% more efficient.",
+    "Learning Technology Architect designing strategy, building tools, and leading adoption across instructional design, AI integration, and learning operations. Driving $200K+ annual savings and 60% efficiency gains.",
   url: "https://andrewmswan.com",
   email: "andrewmswan@gmail.com",
   linkedin: "https://www.linkedin.com/in/andrew-swan-ab6265104/",
@@ -17,21 +17,25 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const SKILLS = {
-  design: {
-    title: "Learning Design",
+  strategy: {
+    title: "Learning Strategy & Design",
     description:
-      "Architecting curricula and experiences grounded in learning science.",
+      "Assessing needs, architecting curricula, and measuring learning outcomes.",
     items: [
+      "Needs Assessment",
+      "Learning Analytics",
+      "Curriculum Architecture",
       "ADDIE & SAM",
       "Agile Development",
       "Backward Design",
       "Universal Design for Learning",
       "Assessment Design",
-      "Curriculum Architecture",
+      "Blended Learning Design",
+      "Microlearning",
     ],
   },
   technology: {
-    title: "Learning Technology",
+    title: "Technology & Development",
     description:
       "Building and optimizing the technical systems that deliver learning at scale.",
     items: [
@@ -39,55 +43,69 @@ export const SKILLS = {
       "HTML & CSS",
       "xAPI & SCORM",
       "LMS Administration",
-      "Power BI & Tableau",
-      "Data Analysis",
+      "Custom Tool Development",
+      "Git",
     ],
   },
   ai: {
     title: "AI & Automation",
     description:
-      "Integrating intelligent tools that amplify team capacity without sacrificing quality.",
+      "Integrating intelligent tools that amplify team capacity and optimize processes.",
     items: [
       "LLM Integration",
       "Copilot Development",
       "Workflow Automation",
       "Prompt Engineering",
-      "Custom Tool Development",
-      "AI Change Management",
+      "AI Strategy & Change Management",
+      "Process Optimization",
+    ],
+  },
+  leadership: {
+    title: "Leadership & Operations",
+    description:
+      "Leading cross-functional initiatives and driving measurable business outcomes.",
+    items: [
+      "Stakeholder Management",
+      "Cross-Functional Leadership",
+      "Change Management",
+      "Project Management",
+      "Vendor Management",
+      "ROI Measurement",
     ],
   },
 } as const;
 
 export const EXPERIENCE = [
   {
-    role: "Senior Course Developer",
-    company: "Colibri",
+    role: "Learning Technology Architect",
+    officialTitle: "Senior Course Developer",
+    company: "Colibri Group",
     location: "Remote",
     period: "2021 \u2013 Present",
     highlights: [
-      "Built TAGFORCE, a proprietary automation platform (JS/Python) that reduced development time by 60% and saves $200K+ annually.",
-      "Championed LLM-based copilot integration across Design, QA, and Data teams, driving 30\u201360% efficiency gains.",
-      "Led WCAG 2.1 AAA compliance transformation across 45+ course product lines.",
-      "Acted as cross-functional hub between content, engineering, and QA \u2014 achieving 15% reduction in development time and 12% cost savings.",
+      "Architected TAGFORCE, a custom JS/Python automation platform that reduced course production time by 60% and saves $200K+ annually. Adopted across multiple teams.",
+      "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams. Drove change adoption and stakeholder alignment across all three.",
+      "Designed and implemented a WCAG 2.1 AAA compliance framework across 45+ courses \u2014 shifting accessibility from end-stage QA to integrated design architecture. Zero post-launch accessibility complaints.",
+      "Partner with cross-functional stakeholders in content, engineering, and QA to align learning operations with business objectives.",
     ],
   },
   {
     role: "Instructional Designer & LMS Administrator",
-    company: "Ameritech College",
+    company: "Ameritech College (now Joyce University)",
     location: "Remote",
     period: "2020 \u2013 2021",
     highlights: [
-      "Managed the LMS serving 2,000+ active users \u2014 overseeing provisioning, stability, and feature updates.",
-      "Designed and delivered instructional content aligned with healthcare education standards.",
+      "Managed enterprise LMS operations serving 2,000+ users. Redesigned admin workflows, built standardized reporting dashboards, and streamlined user onboarding.",
+      "Partnered with academic and operations leadership to align learning technology with institutional goals.",
     ],
   },
   {
-    role: "Accountant",
+    role: "Financial Analyst & Operations",
     company: "The VOID",
     location: "Lindon, Utah",
     period: "2016 \u2013 2019",
     highlights: [
-      "Conducted ROI analysis on merchandise product lines, optimizing procurement and maximizing revenue per guest.",
+      "Managed financial operations including ROI analysis, audit processes, and operational reporting \u2014 building the systems-thinking foundation that informs my approach to learning architecture.",
     ],
   },
 ] as const;

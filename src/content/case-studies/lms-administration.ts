@@ -18,12 +18,12 @@ export const lmsAdministration: CaseStudy = {
     "I redesigned administrative workflows to reduce manual intervention, built standardized reporting dashboards that gave instructors and leadership the data they needed without custom requests, and streamlined the user onboarding process. I also established documentation and procedures that made LMS administration reproducible and less dependent on institutional knowledge.",
   results: {
     metrics: [
-      { value: "2,000+", label: "Users Served" },
-      { value: "Streamlined", label: "Admin Operations" },
-      { value: "Improved", label: "Reporting Accuracy" },
+      { value: "[X]%", label: "Reduction in Manual Admin Time" },
+      { value: "[X] hrs", label: "Saved Weekly on Reporting" },
+      { value: "[X]\u2192[X] days", label: "Faster User Onboarding" },
     ],
     narrative:
-      "The LMS operated reliably for over 2,000 users with improved efficiency in administration, onboarding, and reporting. Instructors had self-service access to the data they needed, reducing ad-hoc report requests. The documentation I created ensured continuity beyond my tenure.",
+      "Transformed LMS operations from reactive, manual administration to a systematized, documentation-driven operation serving 2,000+ active users. Built standardized reporting dashboards that replaced ad-hoc data pulls, enabling leadership to make faster, data-informed decisions about program performance. Created onboarding workflows and operational documentation that ensured continuity beyond any single administrator \u2014 a system designed to outlast the person who built it.",
   },
   reflection:
     "LMS administration is the operational backbone of learning technology that most designers never see. Understanding this layer \u2014 how systems are provisioned, maintained, and optimized \u2014 gave me a perspective that shapes how I approach learning architecture. The best-designed course is worthless if the system delivering it is unreliable.",

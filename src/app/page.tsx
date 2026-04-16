@@ -40,9 +40,10 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="animate-fade-up delay-2 mt-6 max-w-xl text-base leading-relaxed text-stone-400">
-                At the intersection of instructional design, AI integration,
-                and learning operations. I build the tools, processes, and
-                experiences that make learning teams 60% more efficient.
+                Instructional design. AI integration. Learning operations. I
+                design the strategy, build the tools, and lead the adoption
+                that makes learning teams 60% more efficient &mdash; with
+                $200K+ in annual savings to prove it.
               </p>
               <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
                 <Button
@@ -190,7 +191,7 @@ export default function HomePage() {
               Expertise
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-              Three Pillars of Learning Architecture
+              Four Pillars of Learning Architecture
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-base text-muted">
               Where learning science meets technical execution.
@@ -198,7 +199,7 @@ export default function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {Object.values(SKILLS).map((pillar, i) => (
             <Reveal key={pillar.title} delay={0.1 * i}>
               <div className="h-full rounded-lg border border-border bg-background p-7 shadow-sm">
@@ -240,26 +241,26 @@ export default function HomePage() {
               What I&rsquo;m Looking For
             </h2>
             <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
-              I&rsquo;m looking for roles where I can combine learning design
-              with technical systems &mdash; building the infrastructure that
-              makes learning teams more effective, not just designing individual
-              courses. I thrive at the intersection of strategy and execution,
-              where I can architect solutions, integrate AI thoughtfully, and
-              drive measurable outcomes.
+              I&rsquo;m looking for roles where I own the learning technology
+              strategy and build the infrastructure that makes learning teams
+              perform &mdash; not just designing individual courses. I thrive
+              at the intersection of strategy and execution, where I can
+              architect solutions, lead teams, integrate AI thoughtfully, and
+              drive measurable business outcomes.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               {[
                 {
-                  title: "Learning Architecture",
-                  desc: "Designing systems and processes, not just content",
+                  title: "Learning Strategy & Architecture",
+                  desc: "Designing learning ecosystems end-to-end: technology, process, quality frameworks, and roadmap ownership",
                 },
                 {
-                  title: "AI & Automation",
-                  desc: "Strategic integration that sticks, not shiny demos",
+                  title: "AI Integration & Learning Technology",
+                  desc: "Deploying AI and automation where they create measurable business impact, not novelty",
                 },
                 {
-                  title: "Cross-Functional Leadership",
-                  desc: "Bridging design, engineering, and operations",
+                  title: "Strategic Leadership & Change Management",
+                  desc: "Leading adoption of new tools and processes. Partnering with stakeholders. Driving the change.",
                 },
               ].map((item) => (
                 <div

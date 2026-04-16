@@ -20,76 +20,74 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="mt-4 text-3xl font-semibold leading-tight text-stone-50 sm:text-4xl lg:text-[2.75rem]">
-            Most instructional designers hand off
+            Most learning teams choose between great
             <br className="hidden sm:block" />
-            their work to developers.
+            experiences and efficient operations.
             <br />
             <span className="italic text-stone-400">
-              I build the tools the developers use.
+              I architect systems that deliver both.
             </span>
           </h1>
         </div>
       </section>
 
-      {/* Narrative — restructured to lead with impact */}
+      {/* Narrative — impact-first structure */}
       <Section>
         <article className="mx-auto max-w-2xl space-y-7 text-[17px] leading-[1.8] text-ink-light">
           <Reveal>
+            <h2 className="text-2xl font-semibold text-ink">What I do now</h2>
+          </Reveal>
+
+          <Reveal>
             <p>
-              I built an automation platform that cut course development time by
-              60% and saves over $200K annually. I integrated AI copilots across
-              three teams, driving 30&ndash;60% efficiency gains. I led an
-              accessibility transformation across 45+ courses to WCAG 2.1 AAA
-              compliance &mdash; with zero post-launch complaints. And I did it
-              all while serving as the cross-functional bridge between content,
-              engineering, and QA.
+              At Colibri Group, I lead the design and deployment of learning
+              technology systems across course development, quality assurance,
+              and content operations. I built TAGFORCE, a custom automation
+              platform that reduced course production time by 60% and saves over
+              $200K annually. I drove enterprise AI adoption by embedding custom
+              LLM copilots across three teams &mdash; Design, QA, and Data
+              &mdash; delivering 30&ndash;60% efficiency gains with sustained,
+              ongoing usage. I architected a WCAG 2.1 AAA compliance framework
+              that shifted accessibility from a post-production checklist to an
+              integrated design standard across 45+ courses.
             </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal>
             <p>
-              That&rsquo;s the highlight reel. Here&rsquo;s the path that made
-              it possible.
+              That work sits at the intersection of learning strategy, technology
+              development, and organizational change management. I don&rsquo;t
+              just build solutions &mdash; I identify operational bottlenecks,
+              propose strategy to leadership, build and deploy the tools, train
+              the teams, and measure the business impact.
             </p>
           </Reveal>
 
           <hr className="rule my-10" />
 
           <Reveal>
-            <h2 className="text-2xl font-semibold text-ink">
-              The unlikely origin
-            </h2>
+            <h2 className="text-2xl font-semibold text-ink">How I got here</h2>
           </Reveal>
 
           <Reveal>
             <p>
-              I started with a degree in accounting, where I learned to think in
-              systems: how inputs flow through processes, where inefficiencies
-              hide, and how to measure what matters. That analytical foundation
-              shapes everything I do today.
+              I started in accounting &mdash; four years of financial systems,
+              audit processes, and operational analysis at The VOID. That
+              background gave me something most learning designers don&rsquo;t
+              have: a systems-thinking lens and an instinct for ROI. When I
+              pivoted to instructional design, I brought that operational mindset
+              with me.
             </p>
           </Reveal>
 
           <Reveal>
             <p>
-              When I discovered instructional design, I found the intersection of
-              my analytical thinking and my passion for helping people learn. I
-              earned my Master&rsquo;s in Instructional Design from Western
-              Governors University and dove into building learning experiences
-              &mdash; first at Ameritech College, managing an LMS for 2,000+
-              users, and then at Colibri, where my role evolved into something
-              the industry doesn&rsquo;t quite have a name for yet.
-            </p>
-          </Reveal>
-
-          <Reveal>
-            <p>
-              At Colibri, I realized the bottleneck in course development
-              wasn&rsquo;t talent or effort &mdash; it was the process itself. So
-              I started building. TAGFORCE, a proprietary automation platform in
-              JavaScript and Python. LLM-based copilots tailored to each
-              team&rsquo;s workflows. An accessibility framework that made
-              compliance structural rather than cosmetic.
+              My M.Ed. in Instructional Design from WGU gave me the pedagogical
+              foundation. My first learning role at Ameritech College &mdash;
+              administering an LMS serving 2,000+ users &mdash; gave me the
+              operational backbone. At Colibri, I found the space to combine
+              both: designing the learner experience and engineering the
+              ecosystem that makes it possible.
             </p>
           </Reveal>
 
@@ -103,12 +101,34 @@ export default function AboutPage() {
 
           <Reveal>
             <p>
-              It means designing not just the learner experience, but the entire
-              ecosystem around it: the tools that build it, the processes that
-              sustain it, the quality systems that protect it, and the
-              accessibility standards that ensure it reaches everyone. I bridge
-              learning science and technology because great learning at scale
-              requires both.
+              It means owning the full stack: learner experience design,
+              development tooling, quality systems, accessibility standards, AI
+              integration, and the change management required to get teams to
+              actually adopt new ways of working. It means being the bridge
+              between content strategy and engineering execution. It means
+              measuring what matters and building what scales.
+            </p>
+          </Reveal>
+
+          <hr className="rule my-10" />
+
+          <Reveal>
+            <h2 className="text-2xl font-semibold text-ink">How I lead</h2>
+          </Reveal>
+
+          <Reveal>
+            <p>
+              I led the rollout of custom LLM copilots across three teams
+              &mdash; not just building the tools, but training each team,
+              managing stakeholder expectations, and driving sustained adoption
+              through hands-on change management. I developed and delivered the
+              training that shifted our accessibility practice from a QA
+              checklist to an integrated design standard adopted across 45+
+              courses. I mentor teammates on automation workflows and AI
+              integration, helping them build the technical confidence to work
+              with the tools I create. My leadership style is teach the system,
+              not just ship it &mdash; because adoption without understanding
+              doesn&rsquo;t stick.
             </p>
           </Reveal>
 
@@ -122,13 +142,13 @@ export default function AboutPage() {
 
           <Reveal>
             <p>
-              I took a board game from idea to market launch through Kickstarter,
-              managing vendor relationships and international manufacturing
-              logistics. I founded Summit Percussion Scholarship, a 501(c)(3)
-              helping youth in Utah participate in Drum Corps International.
-              I&rsquo;m bilingual in English and Danish. I bring the same energy
-              to everything I do: find a system, understand it deeply, and make
-              it better.
+              I designed, funded, and manufactured a board game through
+              Kickstarter &mdash; managing international vendors, production
+              logistics, and a public launch. I founded Summit Percussion
+              Scholarship, a 501(c)(3) helping youth in Utah participate in Drum
+              Corps International. I&rsquo;m bilingual in English and Danish. I
+              bring the same energy to everything I do: find a system, understand
+              it deeply, and make it better.
             </p>
           </Reveal>
         </article>

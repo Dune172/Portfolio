@@ -43,6 +43,12 @@ export default function ExperiencePage() {
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                     <h2 className="text-xl font-semibold text-ink">
                       {job.role}
+                      {"officialTitle" in job && job.officialTitle && (
+                        <span className="text-sm font-normal text-muted">
+                          {" "}
+                          (title: {job.officialTitle})
+                        </span>
+                      )}
                     </h2>
                     <span className="text-sm text-muted">{job.company}</span>
                   </div>
@@ -83,7 +89,7 @@ export default function ExperiencePage() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {Object.values(SKILLS).map((group, i) => (
             <Reveal key={group.title} delay={0.1 * i}>
               <div className="h-full rounded-lg border border-border bg-background p-7 shadow-sm">
@@ -110,15 +116,16 @@ export default function ExperiencePage() {
               {[
                 "Articulate Storyline",
                 "Articulate Rise",
-                "Adobe Creative Suite",
+                "Adobe Photoshop",
+                "Adobe Premiere Pro",
+                "Adobe Illustrator",
                 "Jira",
                 "Confluence",
                 "Canvas LMS",
                 "Workday",
-                "Git",
-                "HTML & CSS",
                 "Power BI",
                 "Tableau",
+                "Figma",
               ].map((tool) => (
                 <Badge key={tool}>{tool}</Badge>
               ))}
