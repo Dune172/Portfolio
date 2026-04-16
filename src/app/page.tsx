@@ -16,6 +16,7 @@ import {
   DrumlineLogo,
   D2RRandomizerLogo,
   SummitPercussionLogo,
+  OnCourseLearningLogo,
 } from "@/components/home/logos";
 
 export const metadata: Metadata = {
@@ -122,6 +123,7 @@ export default function HomePage() {
                 // Joyce wordmark is stacked (icon + "Joyce" + "UNIVERSITY"), so
                 // it needs a bit more vertical room than the others to read.
                 { name: "Joyce University", Logo: JoyceLogo, heightClass: "h-[67px]" },
+                { name: "OnCourse Learning", Logo: OnCourseLearningLogo },
                 { name: "The VOID", Logo: VoidLogo },
                 { name: "SHHS Drumline", Logo: DrumlineLogo },
               ].map(({ name, Logo, heightClass }, i) => (
