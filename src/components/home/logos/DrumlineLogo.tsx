@@ -4,7 +4,7 @@ export function DrumlineLogo() {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/SHHS Drumline.png"
+      src="/SalemPercussion.png"
       alt=""
       aria-hidden="true"
       className="block h-full w-auto"
