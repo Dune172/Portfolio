@@ -4,7 +4,7 @@ export function D2RRandomizerLogo() {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/D2R Randomizer.png"
+      src="/D2RR.png"
       alt=""
       aria-hidden="true"
       className="block h-full w-auto"
