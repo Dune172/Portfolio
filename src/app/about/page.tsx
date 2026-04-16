@@ -55,11 +55,12 @@ export default function AboutPage() {
 
           <Reveal>
             <p>
-              That work sits at the intersection of learning strategy, technology
-              development, and organizational change management. I don&rsquo;t
-              just build solutions &mdash; I identify operational bottlenecks,
-              propose strategy to leadership, build and deploy the tools, train
-              the teams, and measure the business impact.
+              That work spans three domains: architecting learning ecosystems,
+              automating development operations, and building the analytics
+              infrastructure that proves it all works. I don&rsquo;t just build
+              solutions &mdash; I identify operational bottlenecks, propose
+              strategy to leadership, build and deploy the tools, train the
+              teams, and measure the business impact.
             </p>
           </Reveal>
 

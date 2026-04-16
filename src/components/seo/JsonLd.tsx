@@ -11,6 +11,7 @@ export function PersonJsonLd() {
     email: SITE.email,
     sameAs: [SITE.linkedin],
     knowsAbout: [
+      "Learning Technology Architecture",
       "Instructional Design",
       "Learning Architecture",
       "AI Integration in Learning",
@@ -19,6 +20,13 @@ export function PersonJsonLd() {
       "Workflow Automation",
       "xAPI",
       "SCORM",
+      "LTI",
+      "Enterprise Learning Systems",
+      "Systems Thinking",
+      "Platform Strategy",
+      "Cross-Functional Leadership",
+      "Change Management",
+      "Learning Operations",
     ],
     alumniOf: [
       {

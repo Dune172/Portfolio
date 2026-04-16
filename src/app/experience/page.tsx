@@ -114,18 +114,18 @@ export default function ExperiencePage() {
             </h3>
             <div className="mt-4 flex flex-wrap gap-2">
               {[
+                "Canvas LMS",
+                "Jira",
+                "Confluence",
+                "Power BI",
+                "Tableau",
+                "Figma",
                 "Articulate Storyline",
                 "Articulate Rise",
                 "Adobe Photoshop",
                 "Adobe Premiere Pro",
                 "Adobe Illustrator",
-                "Jira",
-                "Confluence",
-                "Canvas LMS",
                 "Workday",
-                "Power BI",
-                "Tableau",
-                "Figma",
               ].map((tool) => (
                 <Badge key={tool}>{tool}</Badge>
               ))}

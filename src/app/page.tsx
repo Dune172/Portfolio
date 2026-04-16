@@ -1,9 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
-import { SKILLS } from "@/lib/constants";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { getRecentPosts } from "@/lib/blog";
 import { Headshot } from "@/components/home/Headshot";
@@ -13,7 +13,17 @@ import {
   JoyceLogo,
   VoidLogo,
   MeritGamesLogo,
+  DrumlineLogo,
+  D2RRandomizerLogo,
+  SummitPercussionLogo,
 } from "@/components/home/logos";
+
+export const metadata: Metadata = {
+  title:
+    "Andrew Swan — Learning Technology Architect | Strategy, Automation & AI",
+  description:
+    "Learning Technology Architect who designs learning ecosystems, builds custom automation platforms, and leads AI integration across enterprise teams. Driving 60% efficiency gains and $200K+ annual savings through systems thinking and platform strategy.",
+};
 
 export default function HomePage() {
   const featured = getFeaturedCaseStudies();
@@ -113,7 +123,7 @@ export default function HomePage() {
                 // it needs a bit more vertical room than the others to read.
                 { name: "Joyce University", Logo: JoyceLogo, heightClass: "h-[67px]" },
                 { name: "The VOID", Logo: VoidLogo },
-                { name: "Merit Games", Logo: MeritGamesLogo },
+                { name: "SHHS Drumline", Logo: DrumlineLogo },
               ].map(({ name, Logo, heightClass }, i) => (
                 <Reveal key={name} animation="fade-up" delay={0.08 * i}>
                   <CompanyLogo name={name} heightClass={heightClass}>
@@ -183,107 +193,55 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Skills Pillars */}
+      {/* Beyond the Day Job */}
       <Section className="bg-surface">
         <Reveal>
-          <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
-              Expertise
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-              Four Pillars of Learning Architecture
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-base text-muted">
-              Where learning science meets technical execution.
-            </p>
-          </div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+            Beyond the Day Job
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+            Side projects that sharpen the craft
+          </h2>
+          <hr className="rule mt-6 mb-10" />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {Object.values(SKILLS).map((pillar, i) => (
-            <Reveal key={pillar.title} delay={0.1 * i}>
-              <div className="h-full rounded-lg border border-border bg-background p-7 shadow-sm">
-                <h3 className="text-xl font-semibold text-ink">
-                  {pillar.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {pillar.description}
+        <div className="grid gap-8 md:grid-cols-3">
+          {[
+            {
+              name: "Merit Games",
+              Logo: MeritGamesLogo,
+              copy: "Designing the systems and player-facing rules for a tabletop studio — the same product instincts, applied to cardboard and dice.",
+            },
+            {
+              name: "Summit Percussion Scholarship",
+              Logo: SummitPercussionLogo,
+              copy: "A 501(c)(3) I founded, fund, and run — helping Nebo School District percussionists pay their DCI tuition.",
+            },
+            {
+              name: "D2R Randomizer",
+              Logo: D2RRandomizerLogo,
+              copy: "A from-scratch randomizer and modding toolkit for Diablo II: Resurrected — a reverse-engineering and tooling project I ship for fun.",
+            },
+          ].map(({ name, Logo, copy }, i) => (
+            <Reveal key={name} delay={0.08 * i}>
+              <div className="flex h-full flex-col">
+                <div className="flex h-[62px] items-center opacity-90">
+                  <Logo />
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted">
+                  {copy}
                 </p>
-                <ul className="mt-5 space-y-2.5">
-                  {pillar.items.map((skill) => (
-                    <li
-                      key={skill}
-                      className="flex items-center gap-2.5 text-sm text-ink-light"
-                    >
-                      <span
-                        className="h-px w-3 bg-terra"
-                        aria-hidden="true"
-                      />
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+                  {name}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* What I'm Looking For */}
-      <Section>
-        <Reveal>
-          <div className="mx-auto max-w-2xl">
-            <hr className="rule mb-12" />
-            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
-              Open to Opportunities
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-semibold text-ink lg:text-4xl">
-              What I&rsquo;m Looking For
-            </h2>
-            <p className="mt-8 text-center text-lg leading-relaxed text-ink-light">
-              I&rsquo;m looking for roles where I own the learning technology
-              strategy and build the infrastructure that makes learning teams
-              perform &mdash; not just designing individual courses. I thrive
-              at the intersection of strategy and execution, where I can
-              architect solutions, lead teams, integrate AI thoughtfully, and
-              drive measurable business outcomes.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              {[
-                {
-                  title: "Learning Strategy & Architecture",
-                  desc: "Designing learning ecosystems end-to-end: technology, process, quality frameworks, and roadmap ownership",
-                },
-                {
-                  title: "AI Integration & Learning Technology",
-                  desc: "Deploying AI and automation where they create measurable business impact, not novelty",
-                },
-                {
-                  title: "Strategic Leadership & Change Management",
-                  desc: "Leading adoption of new tools and processes. Partnering with stakeholders. Driving the change.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="flex-1 border-l-2 border-cobalt bg-cobalt-light px-5 py-4"
-                >
-                  <p className="text-sm font-semibold text-ink">
-                    {item.title}
-                  </p>
-                  <p className="mt-1 text-xs text-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-10 text-center">
-              <Button href="/contact">Let&rsquo;s Talk</Button>
-            </div>
-            <hr className="rule mt-12" />
-          </div>
-        </Reveal>
-      </Section>
-
       {/* Blog Preview */}
-      <Section className="bg-surface">
+      <Section>
         <Reveal>
           <div className="flex items-end justify-between">
             <div>
@@ -316,7 +274,7 @@ export default function HomePage() {
                     <h3 className="text-base font-semibold text-ink transition-colors group-hover:text-cobalt">
                       {post.title}
                     </h3>
-                    <p className="mt-1 hidden text-sm text-muted sm:block">
+                    <p className="mt-1 text-sm text-muted max-sm:hidden line-clamp-1">
                       {post.description}
                     </p>
                   </div>
