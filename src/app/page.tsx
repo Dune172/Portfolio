@@ -213,32 +213,68 @@ export default function HomePage() {
               name: "Merit Games",
               Logo: MeritGamesLogo,
               copy: "Designing the systems and player-facing rules for a tabletop studio — the same product instincts, applied to cardboard and dice.",
+              href: "https://linktr.ee/meritgames",
             },
             {
               name: "Summit Percussion Scholarship",
               Logo: SummitPercussionLogo,
               copy: "A 501(c)(3) I founded, fund, and run — helping Nebo School District percussionists pay their DCI tuition.",
+              href: "https://nebopercussion.com/summit-percussion-scholarship/",
             },
             {
               name: "D2R Randomizer",
               Logo: D2RRandomizerLogo,
               copy: "A from-scratch randomizer and modding toolkit for Diablo II: Resurrected — a reverse-engineering and tooling project I ship for fun.",
+              href: "https://d2rrandomizer.com",
             },
-          ].map(({ name, Logo, copy }, i) => (
-            <Reveal key={name} delay={0.08 * i}>
-              <div className="flex h-full flex-col">
-                <div className="flex h-[62px] items-center opacity-90">
-                  <Logo />
-                </div>
-                <p className="mt-5 text-sm leading-relaxed text-muted">
-                  {copy}
-                </p>
-                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
-                  {name}
-                </p>
+          ].map(({ name, Logo, copy, href }, i) => {
+            const LogoSlot = (
+              <div className="flex h-[62px] items-center opacity-90">
+                <Logo />
               </div>
-            </Reveal>
-          ))}
+            );
+            const NameText = (
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500 transition-colors group-hover:text-cobalt group-focus-visible:text-cobalt">
+                {name}
+              </p>
+            );
+            return (
+              <Reveal key={name} delay={0.08 * i}>
+                <div className="flex h-full flex-col">
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block outline-none"
+                      aria-label={`${name} (opens in a new tab)`}
+                    >
+                      {LogoSlot}
+                    </a>
+                  ) : (
+                    LogoSlot
+                  )}
+                  <p className="mt-5 text-sm leading-relaxed text-muted">
+                    {copy}
+                  </p>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-block self-start outline-none"
+                    >
+                      {NameText}
+                    </a>
+                  ) : (
+                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">
+                      {name}
+                    </p>
+                  )}
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
