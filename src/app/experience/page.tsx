@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
-import { EXPERIENCE, SKILLS } from "@/lib/constants";
+import { EDUCATION, EXPERIENCE, SKILLS } from "@/lib/constants";
 import { getAllCaseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
@@ -40,34 +40,42 @@ export default function ExperiencePage() {
               <div>
                 {i > 0 && <hr className="rule my-0" />}
                 <div className="py-10">
-                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                    <h2 className="text-xl font-semibold text-ink">
-                      {job.role}
-                      {"officialTitle" in job && job.officialTitle && (
-                        <span className="text-sm font-normal text-muted">
-                          {" "}
-                          (title: {job.officialTitle})
-                        </span>
-                      )}
-                    </h2>
-                    <span className="text-sm text-muted">{job.company}</span>
-                  </div>
+                  <h2 className="text-xl font-semibold text-ink">
+                    {job.role}
+                  </h2>
+                  <p className="mt-1 text-sm text-muted">
+                    {job.officialTitle
+                      ? `${job.officialTitle}, ${job.company}`
+                      : job.company}
+                  </p>
                   <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-cobalt">
                     {job.location} &middot; <time>{job.period}</time>
                   </p>
                   <ul className="mt-5 space-y-3">
-                    {job.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-light"
-                      >
-                        <span
-                          className="mt-[9px] h-px w-3 shrink-0 bg-terra"
-                          aria-hidden="true"
-                        />
-                        {h}
-                      </li>
-                    ))}
+                    {job.highlights.map((h) => {
+                      const key = typeof h === "string" ? h : h.text;
+                      return (
+                        <li
+                          key={key}
+                          className="flex items-start gap-3 text-[15px] leading-relaxed text-ink-light"
+                        >
+                          <span
+                            className="mt-[9px] h-px w-3 shrink-0 bg-terra"
+                            aria-hidden="true"
+                          />
+                          {typeof h === "string" ? (
+                            h
+                          ) : (
+                            <Link
+                              href={h.href}
+                              className="underline decoration-terra/40 decoration-1 underline-offset-4 transition-colors hover:text-cobalt hover:decoration-cobalt"
+                            >
+                              {h.text}
+                            </Link>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -96,11 +104,13 @@ export default function ExperiencePage() {
                 <h3 className="text-lg font-semibold text-ink">
                   {group.title}
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <ul className="mt-4 flex list-none flex-wrap gap-2 p-0">
                   {group.items.map((skill) => (
-                    <Badge key={skill}>{skill}</Badge>
+                    <li key={skill}>
+                      <Badge>{skill}</Badge>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
           ))}
@@ -112,7 +122,7 @@ export default function ExperiencePage() {
             <h3 className="text-lg font-semibold text-ink">
               Platforms & Tools
             </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
+            <ul className="mt-4 flex list-none flex-wrap gap-2 p-0">
               {[
                 "Canvas LMS",
                 "Jira",
@@ -127,15 +137,42 @@ export default function ExperiencePage() {
                 "Adobe Illustrator",
                 "Workday",
               ].map((tool) => (
-                <Badge key={tool}>{tool}</Badge>
+                <li key={tool}>
+                  <Badge>{tool}</Badge>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </Reveal>
       </Section>
 
-      {/* Case Studies */}
+      {/* Education */}
       <Section>
+        <div className="mx-auto max-w-2xl">
+          <Reveal>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+              Credentials
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-ink">Education</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {EDUCATION.map((ed, i) => (
+              <Reveal key={ed.degree} delay={0.1 * i}>
+                <div className="rounded-lg border border-border bg-background p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-ink">
+                    {ed.degree}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted">{ed.school}</p>
+                  <p className="mt-0.5 text-sm text-muted">{ed.period}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Case Studies */}
+      <Section className="bg-surface">
         <Reveal>
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">

@@ -6,6 +6,8 @@ export const wcagCompliance: CaseStudy = {
   category: "Accessibility",
   description:
     "Leading a systematic accessibility transformation that brought 45+ courses to WCAG 2.1 AAA compliance \u2014 not as a bolt-on fix, but as an architectural shift.",
+  cardSubtitle:
+    "Framework, automated pre-checks, and team training that embedded accessibility into the build pipeline \u2014 structural, not bolted-on. AAA is one level above the AA standard most enterprise L&D programs aspire to.",
   heroMetric: {
     value: "45+",
     label: "Courses AAA Compliant",

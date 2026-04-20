@@ -2,13 +2,15 @@ import { CaseStudy } from "./types";
 
 export const tagforce: CaseStudy = {
   slug: "tagforce-automation-platform",
-  title: "TAGFORCE: Building an Automation Platform That Saved $200K+ Annually",
+  title: "TAGFORCE: The Automation Platform That Ended Manual Course Production",
   category: "Automation",
   description:
     "How a proprietary automation tool transformed course development workflows, cutting production time by 60% and saving over $200K per year.",
+  cardSubtitle:
+    "JavaScript + Python content-automation platform with SCORM/xAPI output \u2014 cut development time 60% and compressed multi-week build cycles into a weekly release cadence.",
   heroMetric: {
-    value: "60%",
-    label: "Reduction in Development Time",
+    value: "$200K+",
+    label: "Annual savings delivered",
   },
   challenge:
     "Course development at Colibri was slow, manual, and error-prone. Teams spent excessive hours on repetitive tasks \u2014 template setup, content assembly, formatting checks, and publishing workflows. Each course followed a similar structure, yet every build started nearly from scratch. The bottleneck wasn't talent or effort; it was the process itself.",

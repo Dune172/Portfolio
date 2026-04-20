@@ -32,6 +32,8 @@ export const SKILLS = {
       "Assessment Design",
       "Blended Learning Design",
       "Microlearning",
+      "Kirkpatrick Levels 1\u20134",
+      "Learning Impact Measurement",
     ],
   },
   technology: {
@@ -43,11 +45,18 @@ export const SKILLS = {
       "Node.js",
       "HTML & CSS",
       "xAPI & SCORM",
-      "LTI",
+      "LTI 1.3",
+      "cmi5",
+      "LRS (Learning Record Store)",
       "API Integration",
       "LMS Administration",
       "Custom Tool Development",
       "Automated Testing",
+      "Playwright",
+      "axe-core",
+      "CI/CD",
+      "WCAG 2.1 AAA / 2.2 AA",
+      "Section 508",
       "Git",
     ],
   },
@@ -58,10 +67,14 @@ export const SKILLS = {
     items: [
       "LLM Integration",
       "Custom Copilot Architecture",
+      "RAG (Retrieval-Augmented Generation)",
       "Workflow Automation",
       "Prompt Engineering",
       "AI-Assisted QA",
       "AI Strategy & Change Management",
+      "AI Governance",
+      "Evaluation Frameworks",
+      "Human-in-the-Loop",
       "Process Optimization",
     ],
   },
@@ -80,7 +93,18 @@ export const SKILLS = {
   },
 } as const;
 
-export const EXPERIENCE = [
+export type ExperienceHighlight = string | { text: string; href: string };
+
+export interface ExperienceEntry {
+  role: string;
+  officialTitle?: string;
+  company: string;
+  location: string;
+  period: string;
+  highlights: ExperienceHighlight[];
+}
+
+export const EXPERIENCE: ExperienceEntry[] = [
   {
     role: "Learning Technology Architect",
     officialTitle: "Senior Course Developer",
@@ -88,10 +112,19 @@ export const EXPERIENCE = [
     location: "Remote",
     period: "2021 \u2013 Present",
     highlights: [
-      "Architected TAGFORCE, a custom JS/Python automation platform that reduced course production time by 60% and saves $200K+ annually. Adopted across multiple teams.",
-      "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams. Drove change adoption and stakeholder alignment across all three.",
-      "Designed and implemented a WCAG 2.1 AAA compliance framework across 45+ courses \u2014 shifting accessibility from end-stage QA to integrated design architecture. Zero post-launch accessibility complaints.",
-      "Partner with cross-functional stakeholders in content, engineering, and QA to align learning operations with business objectives.",
+      {
+        text: "Architected TAGFORCE, a custom JS/Python automation platform that reduced course production time by 60% and saves $200K+ annually. Adopted across multiple teams.",
+        href: "/experience/tagforce-automation-platform",
+      },
+      {
+        text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams. Drove change adoption and stakeholder alignment across all three.",
+        href: "/experience/llm-copilot-integration",
+      },
+      {
+        text: "Designed and implemented a WCAG 2.1 AAA compliance framework across 45+ courses \u2014 shifting accessibility from end-stage QA to integrated design architecture. Zero post-launch accessibility complaints.",
+        href: "/experience/wcag-accessibility-at-scale",
+      },
+      "Own the learning-technology roadmap and AI-governance framework for the content organization; lead architecture reviews with engineering, compliance, and business-unit L&D.",
     ],
   },
   {
@@ -100,8 +133,10 @@ export const EXPERIENCE = [
     location: "Remote",
     period: "2020 \u2013 2021",
     highlights: [
-      "Managed enterprise LMS operations serving 2,000+ users. Redesigned admin workflows, built standardized reporting dashboards, and streamlined user onboarding.",
-      "Partnered with academic and operations leadership to align learning technology with institutional goals.",
+      {
+        text: "Managed enterprise LMS operations serving 2,000+ users. Redesigned admin workflows, built standardized reporting dashboards, and streamlined user onboarding.",
+        href: "/experience/enterprise-lms-administration",
+      },
     ],
   },
   {
@@ -110,10 +145,10 @@ export const EXPERIENCE = [
     location: "Lindon, Utah",
     period: "2016 \u2013 2019",
     highlights: [
-      "Managed financial operations including ROI analysis, audit processes, and operational reporting \u2014 building the systems-thinking foundation that informs my approach to learning architecture.",
+      "Built ROI models and audit workflows for a multi-location immersive-entertainment operation \u2014 the cost-per-experience framework I developed there directly informs my cost-per-learning-hour thinking today.",
     ],
   },
-] as const;
+];
 
 export const EDUCATION = [
   {

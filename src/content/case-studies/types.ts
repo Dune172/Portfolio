@@ -3,6 +3,7 @@ export interface CaseStudy {
   title: string;
   category: string;
   description: string;
+  cardSubtitle?: string;
   heroMetric: {
     value: string;
     label: string;

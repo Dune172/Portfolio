@@ -2,7 +2,7 @@ import { CaseStudy } from "./types";
 
 export const lmsAdministration: CaseStudy = {
   slug: "enterprise-lms-administration",
-  title: "Enterprise LMS Administration for 2,000+ Users",
+  title: "Enterprise LMS Architecture: Operations Redesign for 2,000+ Users",
   category: "Learning Operations",
   description:
     "Managing and optimizing an enterprise Learning Management System serving 2,000+ active users in a healthcare education environment.",

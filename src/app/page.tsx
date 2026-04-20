@@ -52,9 +52,10 @@ export default function HomePage() {
               </h1>
               <p className="animate-fade-up delay-2 mt-6 max-w-xl text-base leading-relaxed text-stone-400">
                 Instructional design. AI integration. Learning operations. I
-                design the strategy, build the tools, and lead the adoption
-                that makes learning teams 60% more efficient &mdash; with
-                $200K+ in annual savings to prove it.
+                design the strategy, build the tools, and lead the AI adoption
+                that makes learning teams 60% more efficient &mdash; at the
+                scale of the 1M+ licensed professionals Colibri serves
+                annually.
               </p>
               <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
                 <Button
@@ -86,9 +87,9 @@ export default function HomePage() {
             <div className="h-px w-full bg-gradient-to-r from-transparent via-stone-700 to-transparent" />
             <dl className="mt-8 grid grid-cols-3 gap-6 sm:gap-10">
               {[
-                { value: "60%", label: "Faster development" },
-                { value: "$200K+", label: "Annual savings" },
-                { value: "45+", label: "Courses made accessible" },
+                { value: "1M+", label: "Licensed professionals reached" },
+                { value: "$200K+", label: "Annual savings delivered" },
+                { value: "3", label: "Enterprise AI copilot rollouts" },
               ].map((metric) => (
                 <div key={metric.label}>
                   <dt className="sr-only">{metric.label}</dt>
@@ -147,7 +148,7 @@ export default function HomePage() {
                 Selected Work
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-                Results That Speak
+                Systems, Shipped
               </h2>
             </div>
             <Button
@@ -162,7 +163,7 @@ export default function HomePage() {
           <hr className="rule mt-6 mb-10" />
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {featured.map((cs, i) => (
             <Reveal key={cs.slug} delay={0.1 * i} className="h-full">
               <Link href={`/experience/${cs.slug}`} className="group block h-full">
@@ -171,6 +172,11 @@ export default function HomePage() {
                   <h3 className="mt-4 text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-cobalt">
                     {cs.title}
                   </h3>
+                  {cs.cardSubtitle && (
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {cs.cardSubtitle}
+                    </p>
+                  )}
                   <div className="mt-auto pt-6">
                     <p
                       className="text-4xl font-semibold text-terra"
