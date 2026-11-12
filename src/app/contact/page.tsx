@@ -23,9 +23,9 @@ export default function ContactPage() {
             <span className="italic text-stone-400">Together</span>
           </h1>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-stone-400">
-            Whether you&rsquo;re looking for a Learning Architect to transform
-            your team&rsquo;s capabilities or want to discuss the future of
-            learning technology, I&rsquo;d love to connect.
+            Hiring someone to make AI and automation work inside your teams,
+            or want to compare notes on learning operations? I&rsquo;d love to
+            connect.
           </p>
         </div>
       </section>

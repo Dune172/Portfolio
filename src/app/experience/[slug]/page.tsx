@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getAllCaseStudies, getCaseStudyBySlug } from "@/lib/case-studies";
 import { SITE } from "@/lib/constants";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import {
   TagforceDiagram,
   LlmCopilotsDiagram,
@@ -160,6 +161,8 @@ export default async function CaseStudyPage({
               </p>
             </div>
           </Reveal>
+
+          <RelatedPosts slugs={cs.relatedPosts} />
 
           <hr className="rule mb-10" />
 

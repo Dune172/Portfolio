@@ -13,11 +13,11 @@ export function Footer() {
               Andrew Swan
             </p>
             <p className="mt-2 text-[13px] font-medium uppercase tracking-[0.2em] text-stone-500">
-              Learning Architect
+              {SITE.tagline}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-400">
-              Bridging learning science and technology to build systems that
-              make great learning possible at scale.
+              Making AI and automation work inside real teams, with the
+              learning that makes them stick.
             </p>
           </div>
 

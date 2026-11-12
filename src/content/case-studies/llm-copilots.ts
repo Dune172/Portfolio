@@ -29,5 +29,6 @@ export const llmCopilots: CaseStudy = {
   },
   reflection:
     "The organizational change management side of AI adoption is harder than the technical side. The teams that adopted most successfully weren't the most technically skilled \u2014 they were the ones where I invested the most time understanding their pain points first. AI integration is a design problem, not a technology problem.",
+  relatedPosts: ["ai-adoption-is-a-design-problem", "confidentiality-gate-for-ai-drafts"],
   publishedAt: "2024-03-10",
 };

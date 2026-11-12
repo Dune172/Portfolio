@@ -1,0 +1,57 @@
+name: Publish scheduled posts
+
+# Each blog post has a publishedAt date and only appears on builds on or after
+# that date (src/lib/blog.ts). Hostinger rebuilds when master changes, so on a
+# post's date this workflow commits it to published.json, and that push
+# triggers the deploy. Runs daily; on days with nothing due it does nothing.
+on:
+  schedule:
+    - cron: "17 13 * * *" # 6:17 AM MST / 7:17 AM MDT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-scheduled-posts
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Find posts due today
+        id: due
+        run: node scripts/publish-due.mjs
+
+      - name: Commit and push (triggers the Hostinger deploy)
+        if: steps.due.outputs.count != '0'
+        env:
+          TITLES: ${{ steps.due.outputs.titles }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog/published.json
+          git commit -m "Publish: $TITLES"
+          git push
+
+      - name: Phone notification (optional, needs NTFY_TOPIC secret)
+        if: steps.due.outputs.count != '0' && env.NTFY_TOPIC != ''
+        env:
+          TITLES: ${{ steps.due.outputs.titles }}
+          URLS: ${{ steps.due.outputs.urls }}
+        run: |
+          curl -fsS \
+            -H "Title: New post live on andrewmswan.com" \
+            -H "Click: ${URLS%% *}" \
+            -H "Tags: memo" \
+            -d "$TITLES is live. Approve and post its LinkedIn draft in Social Coach." \
+            "https://ntfy.sh/$NTFY_TOPIC"

@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
-import { getAllPosts } from "@/lib/blog";
+import { formatPostDate, getAllPosts, readingMinutes } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Thoughts on learning architecture, AI integration, accessibility at scale, and building the systems that make great learning possible.",
+    "Writing on AI enablement, process automation, and learning operations: how to make AI and automation work inside real teams, with the tooling and training that make it stick.",
 };
 
 export default function BlogPage() {
@@ -25,8 +25,8 @@ export default function BlogPage() {
             Thinking Out Loud
           </h1>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-stone-400">
-            On learning architecture, AI integration, and building systems that
-            make great learning possible at scale.
+            On AI enablement, process automation, and the learning that makes
+            new tools stick.
           </p>
         </div>
       </section>
@@ -49,11 +49,7 @@ export default function BlogPage() {
                     {post.description}
                   </p>
                   <time className="mt-3 block text-xs text-stone-400">
-                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {formatPostDate(post.publishedAt)} &middot; {readingMinutes(post)} min read
                   </time>
                 </div>
               </Link>

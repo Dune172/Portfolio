@@ -4,9 +4,18 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { PostBody } from "@/components/blog/PostBody";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import {
+  formatPostDate,
+  getAllPosts,
+  getPostBySlug,
+  readingMinutes,
+} from "@/lib/blog";
 import { SITE } from "@/lib/constants";
+
+// Scheduled posts are not generated until their date, and 404 until then.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -24,6 +33,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -67,23 +77,13 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
           <time className="mt-4 block text-sm text-stone-500">
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {formatPostDate(post.publishedAt)} &middot; {readingMinutes(post)} min read
           </time>
         </div>
       </section>
 
       <Section>
-        <article className="mx-auto max-w-2xl space-y-7 text-[17px] leading-[1.8] text-ink-light">
-          {post.content.map((paragraph, i) => (
-            <Reveal key={i}>
-              <p>{paragraph}</p>
-            </Reveal>
-          ))}
-        </article>
+        <PostBody content={post.content} />
 
         <div className="mx-auto mt-14 max-w-2xl">
           <hr className="rule mb-10" />

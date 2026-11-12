@@ -1,0 +1,32 @@
+import { BlogPost } from "./types";
+
+export const seededRandomness: BlogPost = {
+  slug: "seeded-randomness-reproducible-shuffles",
+  title: "Seeded Randomness: Shuffles You Can Share, Replay and Audit",
+  description: "How a nine-line random number generator makes every D2R Randomizer run shareable and every tournament round reproducible, and the rules that keep a seed meaning the same thing a year later.",
+  category: "Engineering",
+  content: [
+    "Two of my side projects depend on randomness that isn't really random. [D2R Randomizer](https://d2rrandomizer.com) shuffles every skill in Diablo II: Resurrected across all eight classes, and players share runs by trading a seed number. Fighting Spirit, my tournament software, pairs the first round of an event at random, and an organizer has to be able to regenerate that round exactly if a result is disputed. Both need the same thing: randomness you can replay.",
+    "## A seed is an input",
+    "`Math.random()` can't be replayed. You can't give it a starting point, so you can't get the same sequence twice. A seeded pseudo-random number generator can: give it the same seed and it returns the same numbers, in the same order, every time, on any machine.",
+    "Both projects use mulberry32, a tiny, well-known generator with a 32-bit state. This is the whole thing:",
+    "```ts\nexport function mulberry32(seed: number): () => number {\n  let s = seed | 0;\n  return () => {\n    s = (s + 0x6d2b79f5) | 0;\n    let t = Math.imul(s ^ (s >>> 15), 1 | s);\n    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;\n    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;\n  };\n}\n```",
+    "It returns a number between 0 and 1, like `Math.random()`. It isn't cryptographically secure, and it doesn't need to be: nobody gains anything by predicting a skill tree. What matters is that it's fast, it's small enough to read in one sitting, and it's deterministic.",
+    "On top of it sits an ordinary Fisher–Yates shuffle that takes its random numbers from the seeded generator instead of `Math.random()`. Players can also type a word instead of a number; the word is hashed down to a 32-bit integer first, so “pizza” is always the same run.",
+    "## Determinism is a discipline, not a function",
+    "The generator is the easy part. The hard part is that the seed only guarantees the same sequence of numbers. Whether those numbers produce the same result depends on everything around them, and that's where reproducibility quietly breaks.",
+    "Every call has to go through the seeded generator. One stray `Math.random()` anywhere in the pipeline, in a helper or a tiebreak or a “just pick one” fallback, and the same seed stops producing the same output, intermittently.",
+    "Inputs have to be in a stable order. If you shuffle a list whose order depends on how it was loaded, such as a database query without an ORDER BY or the keys of an object built in a loop, the same seed gives a different result. Fighting Spirit sorts by player ID wherever order would otherwise be arbitrary. It shuffles players before sorting by record so that players with the same record aren't paired in the same order every round, and it relies on the sort being stable so the shuffle survives as the tiebreak within each bracket.",
+    "The order in which numbers are consumed is part of the output. If a new feature draws one extra random number before the skill shuffle, every number after it shifts, and every seed now produces a different game. Adding a step at the end is safe; adding one in the middle silently changes every run ever shared.",
+    "## Versioning a seed",
+    "D2R Randomizer has to evolve without breaking the seeds people have already shared, raced and posted on leaderboards. Two rules make that work.",
+    "First, the pipeline has a version number, and there's a written checklist of what forces a bump: any change to placement or shuffle logic, to the order random numbers are consumed, or to the game data the randomizer reads. Generated mods are cached under that version, so a bump guarantees nobody is served an old file built by old logic. Changes that don't touch the bytes inside the generated mod, such as the website's design or the changelog, don't bump it.",
+    "Second, when an algorithm has to change in a way that would alter old results, the old algorithm stays. The weekly challenges are the clearest case: when monster shuffling moved to a new selection method, challenges from before the change kept the old method, so they still regenerate identically. A seed plus a challenge number means the same game it meant on the day it was posted.",
+    "## Constraints come after the randomness",
+    "A purely random shuffle makes some runs unplayable, so the randomizer applies constraints on top. One example: Skeleton Mastery always lands on a class with at least one of the two skeleton-raising skills, because a mastery with nothing to master is a wasted skill. Constraints have to be deterministic too. They take the seeded result and adjust it by fixed rules, and they never draw fresh randomness of their own unless it comes from the same seeded generator, in the same place, every time.",
+    "## Why this matters outside games",
+    "Reproducibility is what lets other people trust a process they didn't watch. A player trusts a race because everyone got the same game. An organizer can defend a pairing because it can be regenerated in front of the person disputing it. The same applies to any automated process that makes choices, from sampling records for an audit to picking which learners get which version of an assessment to evaluating an AI workflow: if you can't rerun it and get the same answer, you can't really check it.",
+    "The tools are cheap: seed every random choice, keep inputs in a stable order, version the pipeline, and keep old behaviour available when you change it. The discipline is the expensive part, and it's worth it.",
+  ],
+  publishedAt: "2027-01-19",
+};

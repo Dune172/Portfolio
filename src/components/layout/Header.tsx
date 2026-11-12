@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { NAV_ITEMS } from "@/lib/constants";
+import { NAV_ITEMS, SITE } from "@/lib/constants";
 
 export function Header() {
   const pathname = usePathname();
@@ -21,7 +21,7 @@ export function Header() {
             Andrew Swan
           </span>
           <span className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400 lg:inline">
-            Learning Architect
+            {SITE.tagline}
           </span>
         </Link>
 

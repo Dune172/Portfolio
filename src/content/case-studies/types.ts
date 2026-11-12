@@ -19,5 +19,7 @@ export interface CaseStudy {
     narrative: string;
   };
   reflection: string;
+  /** Blog post slugs to link from this page once they are published. */
+  relatedPosts?: string[];
   publishedAt: string;
 }

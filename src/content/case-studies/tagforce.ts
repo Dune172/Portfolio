@@ -29,5 +29,6 @@ export const tagforce: CaseStudy = {
   },
   reflection:
     "Building tools for your own team teaches you what no vendor product can. When you sit in the same workflows you're automating, you catch edge cases that outside developers miss. The biggest lesson: automation isn't about replacing people \u2014 it's about freeing them to do the work that actually requires human judgment.",
+  relatedPosts: ["why-learning-teams-need-automation", "structure-never-wording-automating-learning-content"],
   publishedAt: "2024-01-15",
 };

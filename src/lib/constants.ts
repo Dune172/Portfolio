@@ -1,8 +1,9 @@
 export const SITE = {
   name: "Andrew Swan",
-  title: "Andrew Swan — Learning Architect",
+  tagline: "AI Enablement & Learning Ops",
+  title: "Andrew Swan — AI Enablement & Learning Operations",
   description:
-    "Learning Technology Architect designing learning ecosystems through systems thinking, platform strategy, and AI integration. Building custom automation tools, leading cross-functional adoption, and driving $200K+ annual savings and 60% efficiency gains across enterprise learning operations.",
+    "AI enablement and learning operations lead. I map how teams actually work, automate the mechanical parts with AI and custom tooling, and design the training that makes adoption stick: 60% faster course production, $200K+ in annual savings, and LLM copilots rolled out across three teams.",
   url: "https://andrewmswan.com",
   email: "andrewmswan@gmail.com",
   linkedin: "https://www.linkedin.com/in/andrew-swan-ab6265104/",
@@ -12,11 +13,33 @@ export const SITE = {
 export const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 export const SKILLS = {
+  ai: {
+    title: "AI Enablement & Automation",
+    description:
+      "Finding the mechanical work in a workflow, automating it with guardrails people can see, and getting teams to keep using it.",
+    items: [
+      "AI Process Optimization",
+      "Workflow Mapping",
+      "LLM Integration",
+      "Custom Copilot Architecture",
+      "RAG (Retrieval-Augmented Generation)",
+      "Prompt Engineering",
+      "AI-Assisted QA",
+      "Human-in-the-Loop Review Gates",
+      "Automated Content Verification",
+      "Desktop RPA (pywinauto / UI Automation)",
+      "Browser Automation (Chrome Extensions)",
+      "AI Strategy & Change Management",
+      "AI Governance",
+      "Evaluation Frameworks",
+    ],
+  },
   strategy: {
     title: "Learning Strategy & Design",
     description:
@@ -60,24 +83,6 @@ export const SKILLS = {
       "Git",
     ],
   },
-  ai: {
-    title: "AI & Automation",
-    description:
-      "Integrating intelligent tools that amplify team capacity and optimize processes.",
-    items: [
-      "LLM Integration",
-      "Custom Copilot Architecture",
-      "RAG (Retrieval-Augmented Generation)",
-      "Workflow Automation",
-      "Prompt Engineering",
-      "AI-Assisted QA",
-      "AI Strategy & Change Management",
-      "AI Governance",
-      "Evaluation Frameworks",
-      "Human-in-the-Loop",
-      "Process Optimization",
-    ],
-  },
   leadership: {
     title: "Leadership & Operations",
     description:
@@ -115,6 +120,14 @@ export const EXPERIENCE: ExperienceEntry[] = [
       {
         text: "Architected TAGFORCE, a custom JS/Python automation platform that reduced course production time by 60% and saves $200K+ annually. Adopted across multiple teams.",
         href: "/experience/tagforce-automation-platform",
+      },
+      {
+        text: "Built Rise Course Builder, a Chrome extension that builds Articulate Rise 360 lessons straight from the team\u2019s Word storyboards. No AI rewriting: a word-by-word check proves nothing was dropped, and a report compares every saved block with its source.",
+        href: "/experience/rise-course-builder",
+      },
+      {
+        text: "Built a Python pipeline that drives Storyline 360 end to end (storyboard cleanup, slide build, text fill, AI narration and text timing) behind a human sign-off gate. Profiling the UI automation halved the time to build each slide.",
+        href: "/experience/storyline-build-pipeline",
       },
       {
         text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams. Drove change adoption and stakeholder alignment across all three.",

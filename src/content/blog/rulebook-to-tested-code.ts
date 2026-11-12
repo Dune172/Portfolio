@@ -1,0 +1,33 @@
+import { BlogPost } from "./types";
+
+export const rulebookToCode: BlogPost = {
+  slug: "turning-a-rulebook-into-tested-code",
+  title: "Turning a Rulebook Into Tested Code: Lessons From Building Tournament Software",
+  description: "The official rules guide for a miniatures game warns that tournament software gets its tiebreakers wrong. Here's how I turned that guide into code with 151 tests, and why the same method works for any policy you need to automate.",
+  category: "Process Design",
+  content: [
+    "Most process automation fails in the same place: the gap between what a policy document says and what the software does. Someone reads the policy, makes a few reasonable assumptions, writes the code, and the assumptions become the rules. Nobody notices until an edge case shows up in production, and by then nobody can say which part was policy and which part was a guess.",
+    "I ran into a clean example of this in a hobby project. I organize StarCraft: The Miniatures Game events, and I've been building Fighting Spirit, tournament software scoped to that one game. The publisher's Organised Play Guide sets out how events should be paired, scored and ranked. It also recommends a generic miniatures tool for running them, while warning organizers to check that their software handles the tiebreakers properly. That warning is the whole reason the project exists.",
+    "## The trap the guide calls out",
+    "The guide uses two opponent metrics as tiebreakers: Strength of Schedule, the average of your opponents' final Match Points, and Opponents' Tournament Points, the same for Tournament Points. It's specific about one detail that's easy to get wrong. Byes, walkovers and no-shows are left out of the pool entirely, not counted as zeros. Conceded games stay in.",
+    "Get that wrong and you quietly penalize every player who received a bye, because a phantom zero drags their average down. No error is thrown and nothing looks broken. The standings are just wrong, at the exact moment people care most about them.",
+    "Written out as rules, that one paragraph becomes four:",
+    "- Both metrics are means, not sums.\n- Both use each opponent's final tally after the last round, not their tally when you played them.\n- An excluded round leaves the numerator and the denominator.\n- An empty pool records zero, not “not a number”.",
+    "Each of those is a decision a developer would otherwise make on autopilot. Turning them into explicit rules is most of the work.",
+    "## Method: every rule has a source and a test",
+    "The approach I settled on is simple and a bit pedantic, which is the point:",
+    "- Each module opens with the passage of the guide it implements, quoted, with the section name. Byes, Swiss pairing, scoring and tiebreakers each cite where their rules come from.\n- Each rule becomes a named test. The tiebreaker tests include one called “is the exact trap the guide warns about”, alongside tests that a walkover leaves both the numerator and the denominator, that a conceded game stays in the pool, and that a dropped player still counts toward their earlier opponents.\n- Where the guide is silent or ambiguous, the code says so in a comment and records the decision, so a guess never passes for policy.",
+    "The scoring engine has 61 tests, the pairing engine 71, and the tournament orchestration 19. That's 151 tests for what looks, from the outside, like “sort the players by points”.",
+    "## Ambiguity is where the design decisions hide",
+    "The rules for byes show how much is left unsaid in a short passage. The guide says a bye goes to someone who hasn't had one, from the lowest-scoring bracket, and that nobody gets a second bye while an eligible player has had none. It doesn't say what happens when two players are tied for lowest, or what to do at a very small event where everyone has already had one.",
+    "So the code makes the order explicit: fewest byes received first, which also generalizes the “no second bye” rule to third byes and beyond; then lowest Match Points; then lowest Tournament Points; then player ID. The last step isn't in the guide at all. It's there so the result never depends on the order players happened to be loaded in. The same input always gives the same answer.",
+    "Swiss pairing had the same kind of gap. The guide says to pair equal or nearest records and avoid repeat pairings “wherever the bracket lets you”. The code sorts by record, then searches for a pairing with backtracking: always reach for the nearest record first, and widen the gap only when a rematch would otherwise be forced. The search has a budget, so a strange field can't hang a round, and if the budget runs out it allows a repeat, which is how I read “wherever the bracket lets you”. That reading is written down next to the code.",
+    "## Make the output auditable",
+    "Tournament results get contested. When they do, the organizer needs to show how a round was paired, and “the software did it” isn't an answer. So round one's random pairing comes from a seeded shuffle rather than an unseeded random call: the same seed regenerates the same round, exactly. Placements are only marked final once the last round closes, because a player's Strength of Schedule keeps moving until their earlier opponents finish their own last games. Anything shown before then is labeled as provisional.",
+    "## This isn't really about tournaments",
+    "Replace “Organised Play Guide” with a compliance policy, an HR procedure or a company's AI usage rules and the method is the same:",
+    "- Quote the source next to the code that implements it.\n- Split each paragraph of policy into atomic rules, and give each rule a test named for what it protects.\n- Find the gaps and write down how you resolved them, so guesses don't harden into policy.\n- Make the system deterministic where people will need to audit it.\n- Mark provisional results as provisional.",
+    "This is the same pattern behind the confidentiality checker in my [AI writing coach](/blog/confidentiality-gate-for-ai-drafts): turn a policy into concrete rules a machine can apply, then make the machine show its reasoning. Whether the rules are run by a model or a function, the hard part is the translation from prose to rules. That translation is process design, and it's work worth doing carefully.",
+  ],
+  publishedAt: "2027-01-05",
+};

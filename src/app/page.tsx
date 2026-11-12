@@ -20,10 +20,9 @@ import {
 } from "@/components/home/logos";
 
 export const metadata: Metadata = {
-  title:
-    "Andrew Swan — Learning Technology Architect | Strategy, Automation & AI",
+  title: "Andrew Swan — AI Enablement & Learning Operations",
   description:
-    "Learning Technology Architect who designs learning ecosystems, builds custom automation platforms, and leads AI integration across enterprise teams. Driving 60% efficiency gains and $200K+ annual savings through systems thinking and platform strategy.",
+    "I make AI and automation work inside real teams: workflow mapping, custom tooling and LLM copilots, and the training that makes adoption stick. 60% faster course production and $200K+ in annual savings at Colibri Group.",
 };
 
 export default function HomePage() {
@@ -40,22 +39,22 @@ export default function HomePage() {
             {/* Content — spans cols 1-2 (same footprint as the first two metrics) */}
             <div className="lg:col-span-2">
               <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.25em] text-stone-400">
-                Learning Architect
+                AI Enablement &middot; Learning Operations
               </p>
               <h1 className="animate-fade-up delay-1 mt-5 text-4xl font-semibold leading-[1.05] text-stone-50 sm:text-5xl lg:text-[3.75rem]">
-                I architect learning
+                I make AI work
                 <br />
-                systems{" "}
+                inside{" "}
                 <span className="italic text-stone-400 text-shimmer">
-                  that scale.
+                  real teams.
                 </span>
               </h1>
               <p className="animate-fade-up delay-2 mt-6 max-w-xl text-base leading-relaxed text-stone-400">
-                Instructional design. AI integration. Learning operations. I
-                design the strategy, build the tools, and lead the AI adoption
-                that makes learning teams 60% more efficient &mdash; at the
-                scale of the 1M+ licensed professionals Colibri serves
-                annually.
+                Workflow mapping, automation, and the learning that makes it
+                stick. I find the mechanical work in a team&rsquo;s process,
+                build the tools that take it over, and design the rollout so
+                people keep using them &mdash; from LLM copilots across three
+                teams to a production platform that cut course build time 60%.
               </p>
               <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
                 <Button
@@ -87,9 +86,9 @@ export default function HomePage() {
             <div className="h-px w-full bg-gradient-to-r from-transparent via-stone-700 to-transparent" />
             <dl className="mt-8 grid grid-cols-3 gap-6 sm:gap-10">
               {[
-                { value: "1M+", label: "Licensed professionals reached" },
+                { value: "60%", label: "Faster course production" },
                 { value: "$200K+", label: "Annual savings delivered" },
-                { value: "3", label: "Enterprise AI copilot rollouts" },
+                { value: "3", label: "Team AI copilot rollouts" },
               ].map((metric) => (
                 <div key={metric.label}>
                   <dt className="sr-only">{metric.label}</dt>
@@ -148,7 +147,7 @@ export default function HomePage() {
                 Selected Work
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-                Systems, Shipped
+                AI and Automation, Shipped
               </h2>
             </div>
             <Button
@@ -207,9 +206,18 @@ export default function HomePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
             Beyond the Day Job
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
-            Side projects that sharpen the craft
-          </h2>
+          <div className="flex items-end justify-between">
+            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+              Side projects that sharpen the craft
+            </h2>
+            <Button
+              href="/projects"
+              variant="secondary"
+              className="hidden sm:inline-flex"
+            >
+              All Projects
+            </Button>
+          </div>
           <hr className="rule mt-6 mb-10" />
         </Reveal>
 

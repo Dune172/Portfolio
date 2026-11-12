@@ -29,5 +29,6 @@ export const wcagCompliance: CaseStudy = {
   },
   reflection:
     "Accessibility is architecture, not cosmetics. When you treat it as something you add at the end, you'll always be catching up. When you build it into the foundation \u2014 into the templates, the tools, the training, the culture \u2014 it becomes effortless. The most impactful part wasn't the checklist; it was changing how the team thinks about who their learners are.",
+  relatedPosts: ["accessibility-as-architecture-not-checklist"],
   publishedAt: "2024-06-20",
 };

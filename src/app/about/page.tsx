@@ -7,7 +7,7 @@ import { EDUCATION } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The story behind the Learning Architect — how accounting, instructional design, and a passion for building tools converge into a unique career bridging learning science and technology.",
+    "How accounting, instructional design and a habit of building tools add up to AI enablement: mapping how teams work, automating the mechanical parts, and training people so the change sticks.",
 };
 
 export default function AboutPage() {
@@ -20,12 +20,12 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="mt-4 text-3xl font-semibold leading-tight text-stone-50 sm:text-4xl lg:text-[2.75rem]">
-            Most learning teams choose between great
+            Most AI rollouts stall at adoption,
             <br className="hidden sm:block" />
-            experiences and efficient operations.
+            not at the technology.
             <br />
             <span className="italic text-stone-400">
-              I architect systems that deliver both.
+              Adoption is a learning problem. That&rsquo;s my field.
             </span>
           </h1>
         </div>
@@ -50,6 +50,17 @@ export default function AboutPage() {
               ongoing usage. I architected a WCAG 2.1 AAA compliance framework
               that shifted accessibility from a post-production checklist to an
               integrated design standard across 45+ courses.
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <p>
+              Most recently I built two course-production tools: a Chrome
+              extension that builds Rise 360 lessons straight from Word
+              storyboards, and a Python pipeline that drives Storyline 360 from
+              storyboard to narrated, timed course. Both follow the same rule:
+              automation may change a course&rsquo;s structure, never its
+              wording, and a check proves it.
             </p>
           </Reveal>
 
@@ -96,18 +107,21 @@ export default function AboutPage() {
 
           <Reveal>
             <h2 className="text-2xl font-semibold text-ink">
-              What &ldquo;Learning Architect&rdquo; means to me
+              What AI enablement means to me
             </h2>
           </Reveal>
 
           <Reveal>
             <p>
-              It means owning the full stack: learner experience design,
-              development tooling, quality systems, accessibility standards, AI
-              integration, and the change management required to get teams to
-              actually adopt new ways of working. It means being the bridge
-              between content strategy and engineering execution. It means
-              measuring what matters and building what scales.
+              It starts with the workflow, not the model. I map where a
+              team&rsquo;s time actually goes, separate the steps that need
+              human judgment from the ones that are mechanical, and automate the
+              mechanical ones with guardrails the team can see: a check that no
+              wording changed, a sign-off before anything builds, a report of
+              every difference. Then I train people on the new way of working
+              and measure whether it stuck. That last part is where most
+              rollouts fail, and it&rsquo;s where a learning background pays
+              off.
             </p>
           </Reveal>
 

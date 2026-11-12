@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogPosts,
     {
+      url: `${SITE.url}/projects`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${SITE.url}/experience`,
       lastModified: new Date(),
       changeFrequency: "monthly",
