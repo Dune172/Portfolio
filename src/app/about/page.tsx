@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { LeadershipDetail } from "@/components/leadership/Leadership";
+import { LEADERSHIP_INTRO, LEADERSHIP_STYLE } from "@/content/leadership";
 import { EDUCATION } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -128,34 +130,19 @@ export default function AboutPage() {
           <hr className="rule my-10" />
 
           <Reveal>
-            <h2 className="text-2xl font-semibold text-ink">How I lead</h2>
+            <h2 id="leadership" className="scroll-mt-24 text-2xl font-semibold text-ink">
+              How I lead
+            </h2>
           </Reveal>
 
           <Reveal>
-            <p>
-              I lead people in two settings. Outside work, I direct the SHHS
-              marching percussion program: three staff members and 30&ndash;40
-              students. At Colibri I don&rsquo;t have direct reports, but
-              I&rsquo;m the person teams come to for AI integration and
-              technical questions, and I lead by building the tools, setting
-              the standards and teaching people to use them.
-            </p>
+            <p>{LEADERSHIP_INTRO}</p>
           </Reveal>
 
+          <LeadershipDetail />
+
           <Reveal>
-            <p>
-              I led the rollout of custom LLM copilots across three teams
-              &mdash; not just building the tools, but training each team,
-              managing stakeholder expectations, and driving sustained adoption
-              through hands-on change management. I developed and delivered the
-              training that shifted our accessibility practice from a QA
-              checklist to an integrated design standard adopted across 45+
-              courses. I mentor teammates on automation workflows and AI
-              integration, helping them build the technical confidence to work
-              with the tools I create. My leadership style is teach the system,
-              not just ship it &mdash; because adoption without understanding
-              doesn&rsquo;t stick.
-            </p>
+            <p>{LEADERSHIP_STYLE}</p>
           </Reveal>
 
           <hr className="rule my-10" />

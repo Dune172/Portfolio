@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
+import { LeadershipSummary } from "@/components/leadership/Leadership";
+import { LEADERSHIP_INTRO } from "@/content/leadership";
 import { getFeaturedCaseStudies } from "@/lib/case-studies";
 import { getRecentPosts } from "@/lib/blog";
 import { Headshot } from "@/components/home/Headshot";
@@ -198,6 +200,32 @@ export default function HomePage() {
             View All Case Studies
           </Button>
         </div>
+      </Section>
+
+      {/* Leadership */}
+      <Section>
+        <Reveal>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cobalt">
+            Leadership
+          </p>
+          <div className="flex items-end justify-between">
+            <h2 className="mt-3 text-3xl font-semibold text-ink lg:text-4xl">
+              How I lead
+            </h2>
+            <Button
+              href="/about#leadership"
+              variant="secondary"
+              className="hidden sm:inline-flex"
+            >
+              More on Leadership
+            </Button>
+          </div>
+          <hr className="rule mt-6 mb-6" />
+          <p className="mb-10 max-w-2xl text-[17px] leading-relaxed text-ink-light">
+            {LEADERSHIP_INTRO}
+          </p>
+        </Reveal>
+        <LeadershipSummary />
       </Section>
 
       {/* Beyond the Day Job */}
