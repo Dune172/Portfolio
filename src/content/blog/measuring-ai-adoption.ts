@@ -1,0 +1,31 @@
+import { BlogPost } from "./types";
+
+export const measuringAiAdoption: BlogPost = {
+  slug: "measuring-ai-adoption-manager-reported-gains",
+  title: "Measuring AI Adoption When the Numbers Come From Managers",
+  description: "The efficiency gains from my AI copilot rollout were reported by each team's managers. Here's what manager-reported numbers are good for, where they fall short, and how to build a benefits case that holds up.",
+  category: "AI Enablement",
+  content: [
+    "When I rolled out custom AI copilots to three teams, the results looked great on a slide: a 45% efficiency gain for Design, 60% for QA and 30% for Data. Those numbers are real, and I stand behind them. They're also worth being honest about, because they came from the project and product managers who ran each team, not from a controlled measurement.",
+    "That's how most AI adoption gets measured in practice. It's also exactly where AI business cases start to wobble when someone outside the team asks how the number was produced. So this post is about what manager-reported gains are good for, where they fall short, and what I'd put around them so a benefits case holds up.",
+    "## Why manager reports are a reasonable place to start",
+    "Managers know their team's throughput better than any dashboard does. They know how long a storyboard review took last quarter, how many defects QA was catching per course, and which reports the data team kept rebuilding by hand. When a manager says a team got 60% faster at first-pass review, that's an informed judgment from the person accountable for the work.",
+    "Manager reports are also cheap, they arrive quickly, and leadership trusts them. Early in an adoption, when the question is “is this worth continuing?”, that's often enough.",
+    "## Where they fall short",
+    "The trouble starts when the numbers have to do more than justify continuing.",
+    "- Each team measured a different thing. “Efficiency” meant faster drafts for Design, faster first-pass review for QA and fewer hand-built queries for Data. The three percentages can't be added or averaged into one figure.\n- There's no shared baseline. Without a before-period measured the same way as the after-period, a gain is an estimate, however well-informed.\n- Novelty inflates early numbers. The first weeks of a new tool are when people are most engaged and most willing to report success.\n- Other changes get credited to AI. If a team also changed a template or a process during the rollout, the gain is shared, and nobody can say how.\n- Speed hides quality. A faster review is only a gain if it catches as many problems as the slow one did.",
+    "None of this makes the numbers wrong. It makes them the start of a benefits case, not the whole of one.",
+    "## Separate adoption from benefit",
+    "The most useful distinction I've found is between adoption, meaning people are actually using the tool, and benefit, meaning the work got better or cheaper because of it. They need different evidence.",
+    "Adoption is the easy one to measure objectively. In our rollout, the copilots sent usage events through xAPI, so we could see who was using them and how often, without asking anyone. That data answers whether a team has really adopted a tool or just tried it, and it's the earliest warning when usage starts to fade.",
+    "Benefit is harder, and that's where manager judgment earns its place. The goal is to support it with enough structure that the number survives scrutiny.",
+    "## A benefits case that holds up",
+    "If I were setting up the measurement for a new rollout from the start, this is the list I'd work from:",
+    "- Define each team's unit of work before the rollout: a reviewed lesson, a QA pass, a finished report. Every number afterwards is per unit.\n- Measure a baseline for a few weeks before the tool arrives, the same way you'll measure after.\n- Pair every speed metric with a quality metric. For QA that might be defects found later in production; for drafting, revisions requested in review.\n- Track usage alongside outcomes. A gain on a team where usage is falling is a gain that's about to disappear.\n- Check again at 90 days. Sustained gains after the novelty fades are the ones worth reporting.\n- Report ranges, and say who produced each number. “Manager-reported, 45–60%” is more credible than an unexplained “60%”.\n- Write down what else changed during the rollout, so the benefit isn't claimed twice.",
+    "Managers stay at the center of this. Their judgment is what turns a time-per-unit number into a decision about whether to keep going, expand or stop. The structure just makes their judgment checkable.",
+    "## Why this matters for AI enablement",
+    "AI enablement work gets funded on promises and kept on evidence. The first rollout usually rides on enthusiasm and a few strong anecdotes. The second and third need numbers that a finance partner or a skeptical director can trace back to their source.",
+    "The teams in my rollout kept using their copilots, and that sustained usage is, in the end, the most convincing number of all. But I'd rather walk into the next rollout with a baseline, a usage feed and a quality check already in place than reconstruct the case afterwards from memory.",
+  ],
+  publishedAt: "2026-12-08",
+};

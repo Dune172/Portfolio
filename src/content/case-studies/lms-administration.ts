@@ -27,5 +27,6 @@ export const lmsAdministration: CaseStudy = {
   },
   reflection:
     "LMS administration is the operational backbone of learning technology that most designers never see. Understanding this layer \u2014 how systems are provisioned, maintained, and optimized \u2014 gave me a perspective that shapes how I approach learning architecture. The best-designed course is worthless if the system delivering it is unreliable.",
+  relatedPosts: ["choosing-an-lms-lessons-from-2000-users"],
   publishedAt: "2024-09-01",
 };

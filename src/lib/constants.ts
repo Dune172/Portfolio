@@ -31,6 +31,7 @@ export const SKILLS = {
       "RAG (Retrieval-Augmented Generation)",
       "Prompt Engineering",
       "AI-Assisted QA",
+      "AI-Assisted Assessment Generation",
       "Human-in-the-Loop Review Gates",
       "Automated Content Verification",
       "Desktop RPA (pywinauto / UI Automation)",
@@ -130,9 +131,10 @@ export const EXPERIENCE: ExperienceEntry[] = [
         href: "/experience/storyline-build-pipeline",
       },
       {
-        text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams. Drove change adoption and stakeholder alignment across all three.",
+        text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams, as reported by each team\u2019s project and product managers. Drove change adoption and stakeholder alignment across all three.",
         href: "/experience/llm-copilot-integration",
       },
+      "Worked on the rules that guide AI-assisted assessment generation.",
       {
         text: "Designed and implemented a WCAG 2.1 AAA compliance framework across 45+ courses \u2014 shifting accessibility from end-stage QA to integrated design architecture. Zero post-launch accessibility complaints.",
         href: "/experience/wcag-accessibility-at-scale",

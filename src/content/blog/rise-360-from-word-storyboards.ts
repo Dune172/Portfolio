@@ -34,5 +34,5 @@ export const riseFromWord: BlogPost = {
     "## If you're thinking of building one",
     "- Start from your team's storyboard templates, not from Rise. The reading is the hard part.\n- Decide what happens to content you can't classify before you write the parser. “Keep it and flag it” is the only safe answer.\n- Show a word check before the build and a comparison after it. The report is what makes people trust the tool.\n- Turn every bug report into a test file. Real storyboards are better tests than anything you'd invent.\n- Keep AI out of the copy step. Use it for drafting, if you like, before the storyboard is approved.",
   ],
-  publishedAt: "2026-12-08",
+  publishedAt: "2026-12-22",
 };

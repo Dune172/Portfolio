@@ -1,0 +1,32 @@
+import { BlogPost } from "./types";
+
+export const lmsLessons: BlogPost = {
+  slug: "choosing-an-lms-lessons-from-2000-users",
+  title: "What Running an LMS for 2,000 Users Teaches You About Choosing One",
+  description: "LMS selections are usually judged on features and the learner demo. After running one for 2,000+ users, I'd judge them on what the administrators live with every day. Here's the checklist.",
+  category: "Learning Operations",
+  content: [
+    "Most LMS selections are decided in a demo. A vendor shows a polished course player, a slick dashboard and a list of features, and a committee compares the lists. Then the contract is signed and someone has to run the thing.",
+    "I was that someone at Ameritech College, now Joyce University, administering an LMS for more than 2,000 active students and faculty in healthcare programs. Much of my time went into the parts no demo shows: provisioning users, building reports people kept asking for, and onboarding new students. By the end, I'd cut manual admin time by more than half, saved over five hours a week on reporting and taken student onboarding from five days to two.",
+    "None of that came from a feature. It came from how well the platform supported its administrators. So if I were on a selection committee tomorrow, that's where I'd spend most of the evaluation.",
+    "## Judge it from the administrator's chair",
+    "Learners see the course player for an hour at a time. Administrators live inside the back office every day. A platform that's pleasant to learn in and painful to run will cost you in staff time every week for as long as you keep it, and that cost almost never appears in the selection scorecard.",
+    "The practical fix is to give each finalist real admin tasks during the evaluation, not just a demo script. Ask them to enroll a cohort of 200, build a report for a program director, fix a learner who's stuck in the wrong section, and roll a course over to a new term. Time each one and watch how many clicks it takes.",
+    "## Provisioning decides your onboarding time",
+    "Our onboarding took five days at the start, and very little of that was learning. It was accounts waiting to be created, enrollments waiting to be matched to the right sections, and handoffs between offices. Getting it to two days was mostly about removing manual steps from that chain.",
+    "So the provisioning questions come first:",
+    "- Can users and enrollments be created automatically from your student information system or HRIS, or will someone be uploading spreadsheets?\n- Are bulk operations real bulk operations, or a loop of single changes?\n- Is there an API, and does it cover the tasks your admins actually do?\n- How are roles and permissions modeled? Can you give a program coordinator exactly the access they need and no more?",
+    "## Reporting is where the hidden hours go",
+    "Before the redesign, instructors and leadership got data by asking for it, and every request was a custom pull. Standardized dashboards that people could open themselves gave back more than five hours a week, and the requests mostly stopped.",
+    "- Can non-admins build or filter reports themselves, within their own permissions?\n- Can reports be scheduled and shared, or only run by hand?\n- Can you export raw data cleanly when the built-in reports fall short?\n- Does it support xAPI, or connect to a learning record store, if you want to measure more than completions?",
+    "## Standards and accessibility aren't optional",
+    "Check SCORM and xAPI support with your own packages, not the vendor's samples. Ask for the platform's accessibility conformance report, and test the learner experience with a keyboard and a screen reader yourself. Accessibility problems in the platform are problems you can't fix in your courses.",
+    "## Plan for continuity, not heroics",
+    "One of the most valuable things I built wasn't a feature at all. It was documentation: written procedures for provisioning, reporting and onboarding that let someone else run the system without me. An LMS that only works because one person knows its quirks is a risk the organization doesn't see until that person leaves.",
+    "When you evaluate a platform, ask how much of its operation can be documented and repeated. Then budget time in the implementation plan to write that documentation, before go-live rather than after.",
+    "## The short version",
+    "- Score finalists on timed admin tasks, not just the learner demo.\n- Put provisioning and integration first. That's where onboarding time is won or lost.\n- Make self-serve reporting a requirement, not a nice-to-have.\n- Test standards support and accessibility with your own content.\n- Measure a baseline before go-live: admin hours, onboarding days, report requests. You'll want it later.\n- Document operations as part of the implementation, so the system outlasts any one administrator.",
+    "A good LMS selection isn't the one with the most features. It's the one your administrators can run well on a busy Monday, and that's something you can test before you sign.",
+  ],
+  publishedAt: "2027-01-19",
+};

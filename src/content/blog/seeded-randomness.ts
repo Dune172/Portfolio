@@ -28,5 +28,5 @@ export const seededRandomness: BlogPost = {
     "Reproducibility is what lets other people trust a process they didn't watch. A player trusts a race because everyone got the same game. An organizer can defend a pairing because it can be regenerated in front of the person disputing it. The same applies to any automated process that makes choices, from sampling records for an audit to picking which learners get which version of an assessment to evaluating an AI workflow: if you can't rerun it and get the same answer, you can't really check it.",
     "The tools are cheap: seed every random choice, keep inputs in a stable order, version the pipeline, and keep old behaviour available when you change it. The discipline is the expensive part, and it's worth it.",
   ],
-  publishedAt: "2027-01-19",
+  publishedAt: "2027-02-16",
 };

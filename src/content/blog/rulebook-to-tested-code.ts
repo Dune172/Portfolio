@@ -29,5 +29,5 @@ export const rulebookToCode: BlogPost = {
     "- Quote the source next to the code that implements it.\n- Split each paragraph of policy into atomic rules, and give each rule a test named for what it protects.\n- Find the gaps and write down how you resolved them, so guesses don't harden into policy.\n- Make the system deterministic where people will need to audit it.\n- Mark provisional results as provisional.",
     "This is the same pattern behind the confidentiality checker in my [AI writing coach](/blog/confidentiality-gate-for-ai-drafts): turn a policy into concrete rules a machine can apply, then make the machine show its reasoning. Whether the rules are run by a model or a function, the hard part is the translation from prose to rules. That translation is process design, and it's work worth doing carefully.",
   ],
-  publishedAt: "2027-01-05",
+  publishedAt: "2027-02-02",
 };

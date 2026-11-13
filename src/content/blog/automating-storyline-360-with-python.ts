@@ -36,5 +36,5 @@ export const storylinePython: BlogPost = {
     "## What I'd tell anyone automating a desktop app",
     "- Run a feasibility test with go/no-go criteria before you plan anything.\n- Use the app's own import and export features for bulk work. Save UI automation for what they can't do.\n- Make every action verify its result, and soak test the library before building on it.\n- Pin the app version. An update is a change to your dependency, so test it like one.\n- Profile before optimizing. The slow part is rarely the one you'd guess.",
   ],
-  publishedAt: "2026-12-22",
+  publishedAt: "2027-01-05",
 };

@@ -25,10 +25,10 @@ export const llmCopilots: CaseStudy = {
       { value: "Sustained", label: "Ongoing Usage & Impact" },
     ],
     narrative:
-      "Efficiency gains reached 60% on the highest-adoption team, with meaningful lift across the other two. More importantly, adoption stuck \u2014 these weren't tools that got used for a week and abandoned. The team-specific approach meant each group got exactly what they needed, building genuine trust in AI-assisted workflows.",
+      "Efficiency gains, as reported by each team's project and product managers, reached 60% for QA, 45% for Design and 30% for Data. More importantly, adoption stuck \u2014 these weren't tools that got used for a week and abandoned. The team-specific approach meant each group got exactly what they needed, building genuine trust in AI-assisted workflows.",
   },
   reflection:
     "The organizational change management side of AI adoption is harder than the technical side. The teams that adopted most successfully weren't the most technically skilled \u2014 they were the ones where I invested the most time understanding their pain points first. AI integration is a design problem, not a technology problem.",
-  relatedPosts: ["ai-adoption-is-a-design-problem", "confidentiality-gate-for-ai-drafts"],
+  relatedPosts: ["measuring-ai-adoption-manager-reported-gains", "ai-adoption-is-a-design-problem", "confidentiality-gate-for-ai-drafts"],
   publishedAt: "2024-03-10",
 };

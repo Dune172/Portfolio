@@ -7,6 +7,8 @@ import { storylinePython } from "@/content/blog/automating-storyline-360-with-py
 import { confidentialityGate } from "@/content/blog/confidentiality-gate-for-ai-drafts";
 import { seededRandomness } from "@/content/blog/seeded-randomness";
 import { rulebookToCode } from "@/content/blog/rulebook-to-tested-code";
+import { measuringAiAdoption } from "@/content/blog/measuring-ai-adoption";
+import { lmsLessons } from "@/content/blog/choosing-an-lms";
 import type { BlogPost } from "@/content/blog/types";
 
 /**
@@ -21,6 +23,8 @@ const allPosts: BlogPost[] = [
   riseFromWord,
   storylinePython,
   confidentialityGate,
+  measuringAiAdoption,
+  lmsLessons,
   seededRandomness,
   rulebookToCode,
   aiAdoption,

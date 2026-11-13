@@ -133,6 +133,17 @@ export default function AboutPage() {
 
           <Reveal>
             <p>
+              I lead people in two settings. Outside work, I direct the SHHS
+              marching percussion program: three staff members and 30&ndash;40
+              students. At Colibri I don&rsquo;t have direct reports, but
+              I&rsquo;m the person teams come to for AI integration and
+              technical questions, and I lead by building the tools, setting
+              the standards and teaching people to use them.
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <p>
               I led the rollout of custom LLM copilots across three teams
               &mdash; not just building the tools, but training each team,
               managing stakeholder expectations, and driving sustained adoption
