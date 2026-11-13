@@ -22,7 +22,7 @@ export const llmCopilots: CaseStudy = {
     metrics: [
       { value: "60%", label: "Highest-team efficiency gain" },
       { value: "3 Teams", label: "Successfully Adopted AI" },
-      { value: "Sustained", label: "Ongoing Usage & Impact" },
+      { value: "60\u201380", label: "People trained" },
     ],
     narrative:
       "Efficiency gains, as reported by each team's project and product managers, reached 60% for QA, 45% for Design and 30% for Data. More importantly, adoption stuck \u2014 these weren't tools that got used for a week and abandoned. The team-specific approach meant each group got exactly what they needed, building genuine trust in AI-assisted workflows.",

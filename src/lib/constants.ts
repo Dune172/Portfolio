@@ -131,7 +131,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
         href: "/experience/storyline-build-pipeline",
       },
       {
-        text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams, as reported by each team\u2019s project and product managers. Drove change adoption and stakeholder alignment across all three.",
+        text: "Led enterprise AI integration strategy: embedded custom LLM copilots in Design (45% gain), QA (60% gain), and Data (30% gain) teams, as reported by each team\u2019s project and product managers. Trained 60\u201380 people and drove change adoption and stakeholder alignment across all three.",
         href: "/experience/llm-copilot-integration",
       },
       "Worked on the rules that guide AI-assisted assessment generation.",
@@ -140,6 +140,17 @@ export const EXPERIENCE: ExperienceEntry[] = [
         href: "/experience/wcag-accessibility-at-scale",
       },
       "Own the learning-technology roadmap and AI-governance framework for the content organization; lead architecture reviews with engineering, compliance, and business-unit L&D.",
+    ],
+  },
+  {
+    role: "Percussion Director",
+    company: "SHHS Marching Percussion",
+    location: "Utah",
+    period: "2021 \u2013 Present",
+    highlights: [
+      "Lead a staff of three and teach and manage 30\u201340 student performers each season, in a paid role alongside my work at Colibri.",
+      "Grew the program from about 20 students to 30\u201340 over five years.",
+      "Design the ensemble\u2019s drill in Pyware 3D, set the section\u2019s instrumentation and wrote its bass drum tuning guide.",
     ],
   },
   {

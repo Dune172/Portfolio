@@ -23,10 +23,10 @@ export const LEADERSHIP: LeadershipItem[] = [
     role: "Percussion Director",
     metrics: [
       { value: "3", label: "Staff led" },
-      { value: "30–40", label: "Student performers" },
+      { value: "30–40", label: "Students, up from ~20" },
     ],
     summary:
-      "I direct the program: I lead a staff of three and teach and manage 30–40 student performers through each season.",
+      "For five years I’ve directed the program, a paid role leading a staff of three and teaching and managing 30–40 student performers each season. It had about 20 students when I started.",
     points: [
       "Design the ensemble’s drill myself in Pyware 3D",
       "Set the section’s instrumentation and wrote its bass drum tuning guide",
@@ -55,13 +55,13 @@ export const LEADERSHIP: LeadershipItem[] = [
     where: "Colibri Group",
     role: "Go-to for AI integration",
     metrics: [
+      { value: "60–80", label: "People trained" },
       { value: "3", label: "Teams through an AI rollout" },
-      { value: "45+", label: "Courses on a standard I trained" },
     ],
     summary:
       "I don’t have direct reports at Colibri. I’m the person teams come to for AI integration and technical questions, and the changes I lead get adopted because people trust the tools and the plan.",
     points: [
-      "Led the AI copilot rollout across Design, QA and Data: mapped each team’s workflow, built the tools, trained the people and aligned the managers",
+      "Led the AI copilot rollout across Design, QA and Data: mapped each team’s workflow, built the tools, trained 60–80 people and aligned the managers",
       "Developed and delivered the training that made WCAG 2.1 AAA accessibility part of design across 45+ courses",
       "Built TAGFORCE and supported its adoption across multiple teams",
     ],
